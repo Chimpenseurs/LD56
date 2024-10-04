@@ -16,27 +16,3 @@ jobs:
         uses: DeterminateSystems/nix-installer-action@v3
       - name: Build default package
         run: nix build
-      - name: check-out pages
-        uses: actions/checkout@v2
-        with:
-          path: former-pages
-          ref: gh-pages
-      - name: Get some dependencies
-        run: nix develop
-      - run: |
-              mv result/* 
-              [ -d site/content/games/${GIT_BRANCH}/${GITHUB_SHA}/ ] || mkdir -p site/content/games/${GIT_BRANCH}/${GITHUB_SHA}/
-              rsync -r former-pages/games/* site/content/games
-              tree site
-              # Move the recently build game
-              mv _build/* site/content/games/${GIT_BRANCH}/${GITHUB_SHA}/
-              tree site
-              python .github/workflows/generate_build_page.py site/content/games > site/content/pages/builds.md
-              pip install -r site/requirements.txt
-              cd site && make publish
-
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.1
-        with:
-          branch: gh-pages
-          folder: site/output 

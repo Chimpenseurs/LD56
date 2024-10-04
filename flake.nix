@@ -17,7 +17,20 @@
       # Development environment
       devShell = pkgs.mkShell {
         name = "godot4";
-        nativeBuildInputs = [pkgs.godot_4 pkgs.python3 pkgs.git];
+        nativeBuildInputs = [pkgs.godot_4 pkgs.python3 pkgs.git pkgs.zola];
+      };
+
+      packages.site = pkgs.stdenv.mkDerivation {
+        name = "gh-page";
+        src = ./site;
+        nativeBuildInputs = [pkgs.python3 pkgs.zola];
+        buildPhase = ''
+          make html
+        '';
+        installPhase = ''
+          mkdir -p $out
+          cp -r output/* $out
+        '';
       };
 
       packages.default = pkgs.stdenv.mkDerivation rec {
