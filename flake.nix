@@ -23,9 +23,14 @@
       packages.site = pkgs.stdenv.mkDerivation {
         name = "gh-page";
         src = ./site;
-        nativeBuildInputs = [pkgs.python3 pkgs.zola];
+        nativeBuildInputs = [pkgs.python3 pkgs.zola ];
         buildPhase = ''
-          make html
+          # Get the game
+          mkdir -p static/files/game/
+          cp -r ${self.packages.${system}.default}/* static/files/game
+
+          # build the site
+          zola build -o output
         '';
         installPhase = ''
           mkdir -p $out
