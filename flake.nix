@@ -21,6 +21,8 @@
       };
 
       packages.default = pkgs.stdenv.mkDerivation rec {
+        # Thank you, that saved me a lot of time !
+        # https://github.com/jtojnar/nixpkgs/blob/c46689dd5bef6adbb0cb3ea935b02e57e1b242c4/pkgs/by-name/pi/pixelorama/package.nix#L8
         stdenv = pkgs.stdenv;
 
         godot_version_folder = pkgs.lib.replaceStrings ["-"] ["."] pkgs.godot_4.version;
