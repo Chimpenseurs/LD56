@@ -4,7 +4,7 @@ save_as: index.html
 
 ## Technical overview
 
-The source code of the game is open source (GPL3) and available on [github](https://github.com/ludum-rlyeh/LD49_Unstable).
+The source code of the game is open source (GPL3) and available on [github](https://github.com/chimpenseurs/LD56).
 
 The game is playable in your web browser. We didn't plan to make any Windows/Linux release yet, if you need it don't hesitate to tell us.
 
