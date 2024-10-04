@@ -17,7 +17,7 @@
       # Development environment
       devShell = pkgs.mkShell {
         name = "godot4";
-        nativeBuildInputs = [pkgs.godot_4 pkgs.python3];
+        nativeBuildInputs = [pkgs.godot_4 pkgs.python3 pkgs.git];
       };
 
       packages.default = pkgs.stdenv.mkDerivation rec {
