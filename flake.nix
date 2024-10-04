@@ -28,6 +28,10 @@
           # Get the game
           mkdir -p static/files/game/
           cp -r ${self.packages.${system}.default}/* static/files/game
+          cp static/coi-serviceworker.js static/files/game
+
+          # More info here: https://github.com/godotengine/godot-proposals/issues/6616#issuecomment-1513340085
+          sed -i 's#\(		<script src="index.js"></script>\)#		<script src="coi-serviceworker.js"></script>\n\1#g' static/files/game/index.html
 
           # build the site
           zola build -o output
@@ -76,7 +80,7 @@
           ln -s "${pkgs.godot_4-export-templates}" "$HOME/.local/share/godot/export_templates/${godot_version_folder}"
 
           mkdir -p _build/
-          godot4 --headless --export-release Web ./_build/LD56.html
+          godot4 --headless --export-release Web ./_build/index.html
 
           runHook postBuild
         '';
