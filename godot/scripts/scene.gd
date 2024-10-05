@@ -15,11 +15,13 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:
 		if event.keycode == KEY_RIGHT:
 			$Camera2D.position.x += speed_camera
+			$Camera2D.position.x = min($Camera2D.position.x, 632.0)
 		elif event.keycode == KEY_LEFT:
 			$Camera2D.position.x -= speed_camera
 			$Camera2D.position.x = max($Camera2D.position.x, 0.0)
 		elif event.keycode == KEY_DOWN:
 			$Camera2D.position.y += speed_camera
+			$Camera2D.position.y = min($Camera2D.position.y, 728.0)
 		elif event.keycode == KEY_UP:
 			$Camera2D.position.y -= speed_camera
-			$Camera2D.position.y = max($Camera2D.position.y, 0.0)
+			$Camera2D.position.y = max($Camera2D.position.y, -1020)
