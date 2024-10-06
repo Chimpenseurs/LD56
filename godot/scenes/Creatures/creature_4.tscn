@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7145rdwhkc3y"]
+[gd_scene load_steps=12 format=3 uid="uid://c7145rdwhkc3y"]
 
 [ext_resource type="PackedScene" uid="uid://h63uscgmwm1t" path="res://scenes/lutin.tscn" id="1_76caq"]
 [ext_resource type="Texture2D" uid="uid://bthexduu6emp" path="res://resources/images/Creatures/Creature_4_rock_paraletruc/awake.png" id="2_8ggsc"]
 [ext_resource type="Texture2D" uid="uid://bjgdueyiwf6pw" path="res://resources/images/Creatures/Creature_4_rock_paraletruc/sleepy.png" id="3_alw5b"]
+[ext_resource type="AudioStream" uid="uid://bt4r58rxpvns1" path="res://resources/sfx/troll-found.wav" id="4_n1p7v"]
+[ext_resource type="AudioStream" uid="uid://cagjwht7qqaak" path="res://resources/sfx/troll-chant.ogg" id="5_steg1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_31e7w"]
 size = Vector2(920, 985)
@@ -13,6 +15,7 @@ script/source = "extends Node2D
 func _on_lutin_is_clicked() -> void:
 	$AnimationPlayer.play(\"stone_to_squirrel\")
 	$noise.play()
+	$chant.volume_db = 15
 	get_parent().find()
 "
 
@@ -48,6 +51,16 @@ _data = {
 "stone_to_squirrel": SubResource("Animation_t635r")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_6e3up"]
+random_pitch = 1.15
+streams_count = 1
+stream_0/stream = ExtResource("4_n1p7v")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_o615n"]
+random_pitch = 1.15
+streams_count = 1
+stream_0/stream = ExtResource("5_steg1")
+
 [node name="Lutin" instance=ExtResource("1_76caq")]
 scale = Vector2(0.2, 0.2)
 
@@ -71,7 +84,16 @@ libraries = {
 [node name="Creature4Sleepy" type="Sprite2D" parent="Creature_4" index="2"]
 texture = ExtResource("3_alw5b")
 
-[node name="noise" type="AudioStreamPlayer" parent="Creature_4" index="3"]
+[node name="noise" type="AudioStreamPlayer2D" parent="Creature_4" index="3"]
+stream = SubResource("AudioStreamRandomizer_6e3up")
+volume_db = 20.428
+bus = &"SFX"
+
+[node name="chant" type="AudioStreamPlayer2D" parent="Creature_4" index="4"]
+stream = SubResource("AudioStreamRandomizer_o615n")
+volume_db = -80.0
+autoplay = true
+bus = &"SFX"
 
 [connection signal="is_clicked" from="." to="Creature_4" method="_on_lutin_is_clicked"]
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
