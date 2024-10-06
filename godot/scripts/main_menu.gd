@@ -18,4 +18,5 @@ func _on_quit_pressed() -> void:
 
 
 func _on_play_pressed() -> void:
+	Input.set_mouse_mode(Input.MouseMode.MOUSE_MODE_CONFINED)
 	play.emit()
