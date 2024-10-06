@@ -1,19 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://cb4bi7y8ykstg"]
+[gd_scene load_steps=3 format=3 uid="uid://cb4bi7y8ykstg"]
 
 [ext_resource type="Texture2D" uid="uid://det60bhj7vs1j" path="res://resources/images/third_layer.png" id="1_tuy6d"]
+[ext_resource type="PackedScene" uid="uid://c7145rdwhkc3y" path="res://scenes/Creatures/creature_4.tscn" id="2_glap6"]
 
 [node name="ThirdLayer" type="Parallax2D"]
 scroll_scale = Vector2(0.1, 0.1)
-
-[node name="ThirdLayer2" type="Sprite2D" parent="."]
-position = Vector2(1421, 112)
-scale = Vector2(0.64, 0.64)
-texture = ExtResource("1_tuy6d")
-region_enabled = true
-region_rect = Rect2(1026.4, 0, 381.598, 1232)
 
 [node name="ThirdLayer" type="Sprite2D" parent="."]
 position = Vector2(561, 184)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("1_tuy6d")
 flip_h = true
+
+[node name="Lutin" parent="." instance=ExtResource("2_glap6")]
+position = Vector2(1241, 370)

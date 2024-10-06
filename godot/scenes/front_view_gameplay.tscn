@@ -30,10 +30,11 @@ script = ExtResource("1_7cxck")
 anchor_mode = 0
 
 [node name="ThirdLayer" parent="." instance=ExtResource("2_d6ee5")]
+scroll_offset = Vector2(0, 2)
 
 [node name="SecondLayer" parent="." instance=ExtResource("3_nsbkf")]
 scroll_scale = Vector2(0.2, 0.2)
-scroll_offset = Vector2(64, -5)
+scroll_offset = Vector2(171, -25)
 
 [node name="FirstLayer" parent="." instance=ExtResource("4_1buqi")]
 
