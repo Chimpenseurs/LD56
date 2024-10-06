@@ -1,15 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://cb4bi7y8ykstg"]
 
-[ext_resource type="Texture2D" uid="uid://det60bhj7vs1j" path="res://resources/images/third_layer.png" id="1_tuy6d"]
+[ext_resource type="Texture2D" uid="uid://c1r5m22xae1nb" path="res://resources/images/third_layer_v3.png" id="1_ir8bg"]
 [ext_resource type="PackedScene" uid="uid://c7145rdwhkc3y" path="res://scenes/Creatures/creature_4.tscn" id="2_glap6"]
 
 [node name="ThirdLayer" type="Parallax2D"]
 scroll_scale = Vector2(0.1, 0.1)
 
 [node name="ThirdLayer" type="Sprite2D" parent="."]
-position = Vector2(561, 184)
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("1_tuy6d")
+position = Vector2(913, 311)
+scale = Vector2(0.9, 1)
+texture = ExtResource("1_ir8bg")
 flip_h = true
 
 [node name="Creature_4" parent="." instance=ExtResource("2_glap6")]
