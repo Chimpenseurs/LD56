@@ -1,11 +1,14 @@
 extends Node2D
 
+signal replay
+signal gotomainmenu
 
 var can_play_footstep = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	$Camera2D/GameOver.replay.connect(_on_gameover_replay)
+	$Camera2D/GameOver.gotomainmenu.connect(_on_gameover_gotomainmenu)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -37,3 +40,10 @@ func _input(event: InputEvent) -> void:
 
 func _on_timer_timeout():
 	can_play_footstep = true
+
+func _on_gameover_replay():
+	print("_on_gameover_replay")
+	replay.emit()
+
+func _on_gameover_gotomainmenu():
+	gotomainmenu.emit()
