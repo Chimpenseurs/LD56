@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7iggml53ca0"]
+[gd_scene load_steps=7 format=3 uid="uid://c7iggml53ca0"]
 
 [ext_resource type="Script" path="res://scripts/scene.gd" id="1_7cxck"]
 [ext_resource type="Texture2D" uid="uid://dwbhy5w50b5b0" path="res://resources/images/first_layer.svg" id="2_3pl5l"]
 [ext_resource type="Texture2D" uid="uid://det60bhj7vs1j" path="res://resources/images/third_layer.png" id="2_6bg1v"]
 [ext_resource type="PackedScene" uid="uid://h63uscgmwm1t" path="res://scenes/lutin.tscn" id="2_c01ed"]
 [ext_resource type="Texture2D" uid="uid://d17ynhbvmxsew" path="res://resources/images/second_layer_v2.png" id="2_qvcf4"]
+[ext_resource type="AudioStream" uid="uid://c1npbchrjpn1a" path="res://resources/musics/main-theme.ogg" id="6_xsin8"]
 
 [node name="Scene" type="Node2D"]
 script = ExtResource("1_7cxck")
@@ -66,3 +67,9 @@ scale = Vector2(0.5, 0.5)
 [node name="Lutin2" parent="FirstLayer/Lutins" instance=ExtResource("2_c01ed")]
 position = Vector2(602, 216)
 scale = Vector2(0.25, 0.25)
+
+[node name="MainTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_xsin8")
+autoplay = true
+bus = &"Background"
+parameters/looping = false
