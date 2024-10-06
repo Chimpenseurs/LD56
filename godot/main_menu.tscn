@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://boncixr52utra"]
+[gd_scene load_steps=6 format=3 uid="uid://boncixr52utra"]
 
 [ext_resource type="FontFile" uid="uid://c2lwgedp5857v" path="res://resources/fonts/Celtic Knot.TTF" id="1_3cyht"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_abneh"]
 [ext_resource type="Texture2D" uid="uid://brotkb0v1xtj3" path="res://resources/images/main_menu_bg.png" id="2_iwncr"]
 [ext_resource type="FontFile" uid="uid://dsgfusu2nhuj2" path="res://resources/fonts/IrishUncialfabeta-Bold.ttf" id="3_616cs"]
+[ext_resource type="AudioStream" uid="uid://cdif5ylc0t306" path="res://resources/musics/title-theme.ogg" id="5_c6v72"]
 
 [node name="MainMenu" type="Control"]
 process_mode = 3
@@ -77,6 +78,13 @@ layout_mode = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_616cs")
 text = "Quit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_c6v72")
+volume_db = 18.507
+autoplay = true
+bus = &"Background"
+parameters/looping = true
 
 [connection signal="pressed" from="VBoxContainer/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]
