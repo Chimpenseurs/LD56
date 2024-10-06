@@ -2,7 +2,7 @@
   description = "Flake for godot";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/release-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
   };
 
