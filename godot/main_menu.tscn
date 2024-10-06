@@ -1,0 +1,82 @@
+[gd_scene load_steps=5 format=3 uid="uid://boncixr52utra"]
+
+[ext_resource type="FontFile" uid="uid://c2lwgedp5857v" path="res://resources/fonts/Celtic Knot.TTF" id="1_3cyht"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_abneh"]
+[ext_resource type="Texture2D" uid="uid://brotkb0v1xtj3" path="res://resources/images/main_menu_bg.png" id="2_iwncr"]
+[ext_resource type="FontFile" uid="uid://dsgfusu2nhuj2" path="res://resources/fonts/IrishUncialfabeta-Bold.ttf" id="3_616cs"]
+
+[node name="MainMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_abneh")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -97.0
+offset_top = -28.0
+offset_right = 1283.0
+offset_bottom = 757.0
+texture = ExtResource("2_iwncr")
+expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 587.0
+offset_top = 203.0
+offset_right = 1116.0
+offset_bottom = 286.0
+color = Color(0.948958, 0.633183, 0.409963, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.729688
+anchor_top = 0.0416667
+anchor_right = 0.729688
+anchor_bottom = 0.0416667
+offset_left = -325.0
+offset_top = 183.0
+offset_right = 174.0
+offset_bottom = 257.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_3cyht")
+theme_override_font_sizes/normal_font_size = 42
+text = "Petit Peuple"
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 137.0
+offset_top = 33.0
+offset_right = 288.0
+offset_bottom = 97.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_616cs")
+text = "Play into the forest !"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_616cs")
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]

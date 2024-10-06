@@ -1,8 +1,6 @@
 extends Control
 
-signal replay
-signal gotomainmenu
-
+signal play
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,20 +12,10 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_button_pressed() -> void:
-	$message.visible = false
-	$EndMenu.visible = true
-	
-
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
 
 
-func _on_replay_pressed() -> void:
-	print("button replay pressed")
-	replay.emit()
-
-
-func _on_menu_pressed() -> void:
-	gotomainmenu.emit()
+func _on_play_pressed() -> void:
+	play.emit()

@@ -166,4 +166,6 @@ texture = ExtResource("4_8crk1")
 stream = SubResource("AudioStreamRandomizer_46ve6")
 
 [connection signal="pressed" from="message/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="EndMenu/VBoxContainer/replay" to="." method="_on_replay_pressed"]
+[connection signal="pressed" from="EndMenu/VBoxContainer/menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="EndMenu/VBoxContainer/quit" to="." method="_on_quit_pressed"]
