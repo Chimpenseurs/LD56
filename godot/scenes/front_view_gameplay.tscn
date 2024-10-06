@@ -16,7 +16,7 @@ script = ExtResource("1_7cxck")
 anchor_mode = 0
 
 [node name="ThirdLayer" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0.3, 0.3)
+scroll_scale = Vector2(0.1, 0.1)
 
 [node name="ThirdLayer2" type="Sprite2D" parent="ThirdLayer"]
 position = Vector2(1421, 112)
@@ -50,7 +50,7 @@ region_rect = Rect2(1419.94, 0, 433.674, 1408)
 
 [node name="FirstLayer" type="Parallax2D" parent="."]
 scale = Vector2(1.2, 1.2)
-scroll_scale = Vector2(0.2, 0.2)
+scroll_scale = Vector2(0.3, 0.3)
 
 [node name="FirstLayer" type="Sprite2D" parent="FirstLayer"]
 position = Vector2(646.667, 266.667)
@@ -73,3 +73,9 @@ stream = ExtResource("6_xsin8")
 autoplay = true
 bus = &"Background"
 parameters/looping = false
+
+[node name="SoundLevel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
