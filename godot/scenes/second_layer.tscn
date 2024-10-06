@@ -10,7 +10,7 @@
 scroll_scale = Vector2(0.25, 0.25)
 
 [node name="Lutin_1" parent="." instance=ExtResource("5_e72g5")]
-position = Vector2(251, 164)
+position = Vector2(328, 197)
 rotation = 1.60449
 scale = Vector2(0.02, 0.02)
 hat_color = Color(0.992157, 0.705882, 0.517647, 1)
@@ -27,18 +27,12 @@ scale = Vector2(0.8, 0.889)
 texture = ExtResource("3_x1lwr")
 
 [node name="Mushroom" type="Sprite2D" parent="."]
-position = Vector2(723, 595)
+position = Vector2(707.265, 563.422)
 scale = Vector2(0.334951, 0.334951)
 texture = ExtResource("2_fdmw0")
 metadata/_edit_lock_ = true
 
-[node name="Lutin_2" parent="." instance=ExtResource("5_e72g5")]
-position = Vector2(97, 667)
-rotation = 1.60449
-scale = Vector2(0.02, 0.02)
-hat_color = Color(0.992157, 0.705882, 0.517647, 1)
-
 [node name="Creature_2" parent="." instance=ExtResource("3_8oiww")]
-position = Vector2(721, 581)
+position = Vector2(705.265, 549.422)
 scale = Vector2(0.36, 0.36)
 metadata/_edit_lock_ = true
