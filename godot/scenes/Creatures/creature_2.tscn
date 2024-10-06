@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://csj1gonb1kbvn"]
+[gd_scene load_steps=14 format=3 uid="uid://csj1gonb1kbvn"]
 
 [ext_resource type="PackedScene" uid="uid://h63uscgmwm1t" path="res://scenes/lutin.tscn" id="1_r1uy8"]
 [ext_resource type="Script" path="res://creature_2.gd" id="2_5ix1u"]
 [ext_resource type="Texture2D" uid="uid://oi8qmg2r4utb" path="res://resources/images/Creatures/Creature_2_Ladybird/dessin.svg" id="3_c6iw8"]
+[ext_resource type="AudioStream" uid="uid://cpaot2yf5kd2l" path="res://resources/sfx/fly.wav" id="4_h6mp1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ompc4"]
 atlas = ExtResource("3_c6iw8")
@@ -62,6 +63,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uvf4c"]
 size = Vector2(103, 65)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_nsemy"]
+random_pitch = 1.14
+streams_count = 1
+stream_0/stream = ExtResource("4_h6mp1")
+
 [node name="Lutin" instance=ExtResource("1_r1uy8")]
 
 [node name="Creature_2" type="Node2D" parent="." index="1"]
@@ -78,6 +84,11 @@ flip_h = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Creature_2/Area2D" index="0"]
 position = Vector2(9.5, 12.5)
 shape = SubResource("RectangleShape2D_uvf4c")
+
+[node name="fly" type="AudioStreamPlayer" parent="Creature_2" index="2"]
+stream = SubResource("AudioStreamRandomizer_nsemy")
+volume_db = 14.857
+bus = &"SFX"
 
 [connection signal="animation_finished" from="Creature_2/AnimatedSprite2D" to="Creature_2" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="input_event" from="Creature_2/Area2D" to="Creature_2" method="_on_area_2d_input_event"]

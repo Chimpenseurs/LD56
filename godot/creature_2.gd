@@ -16,5 +16,6 @@ func _process(delta):
 			get_parent().hide()
 
 func _on_animated_sprite_2d_animation_finished() -> void:
+	$fly.play()
 	$AnimatedSprite2D.play("move")
 	can_move = true
