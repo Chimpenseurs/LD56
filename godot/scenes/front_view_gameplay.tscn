@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://scripts/scene.gd" id="1_7cxck"]
 [ext_resource type="Texture2D" uid="uid://dwbhy5w50b5b0" path="res://resources/images/first_layer.svg" id="2_3pl5l"]
 [ext_resource type="Texture2D" uid="uid://det60bhj7vs1j" path="res://resources/images/third_layer.png" id="2_6bg1v"]
-[ext_resource type="PackedScene" uid="uid://h63uscgmwm1t" path="res://scenes/lutin.tscn" id="2_c01ed"]
 [ext_resource type="Texture2D" uid="uid://d17ynhbvmxsew" path="res://resources/images/second_layer_v2.png" id="2_qvcf4"]
+[ext_resource type="PackedScene" uid="uid://wxlmykoxicxh" path="res://scenes/Creatures/creature_1.tscn" id="5_pmct8"]
 [ext_resource type="AudioStream" uid="uid://c1npbchrjpn1a" path="res://resources/musics/main-theme.ogg" id="6_xsin8"]
 [ext_resource type="AudioStream" uid="uid://djwr32giejafs" path="res://resources/sfx/footstep01.wav" id="7_1g57j"]
 [ext_resource type="AudioStream" uid="uid://8cywiois5fho" path="res://resources/sfx/footstep02.wav" id="8_aari5"]
@@ -30,7 +30,7 @@ script = ExtResource("1_7cxck")
 anchor_mode = 0
 
 [node name="ThirdLayer" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0.3, 0.3)
+scroll_scale = Vector2(0.1, 0.1)
 
 [node name="ThirdLayer2" type="Sprite2D" parent="ThirdLayer"]
 position = Vector2(1421, 112)
@@ -64,23 +64,22 @@ region_rect = Rect2(1419.94, 0, 433.674, 1408)
 
 [node name="FirstLayer" type="Parallax2D" parent="."]
 scale = Vector2(1.2, 1.2)
-scroll_scale = Vector2(0.2, 0.2)
+scroll_scale = Vector2(0.3, 0.3)
 
-[node name="FirstLayer" type="Sprite2D" parent="FirstLayer"]
+[node name="Background" type="Node2D" parent="FirstLayer"]
+metadata/_edit_lock_ = true
+
+[node name="FirstLayer" type="Sprite2D" parent="FirstLayer/Background"]
 position = Vector2(646.667, 266.667)
 scale = Vector2(0.667839, 0.671296)
 texture = ExtResource("2_3pl5l")
 
 [node name="Lutins" type="Node2D" parent="FirstLayer"]
-scale = Vector2(0.833333, 0.833333)
+position = Vector2(145.833, 186.667)
 
-[node name="Lutin" parent="FirstLayer/Lutins" instance=ExtResource("2_c01ed")]
-position = Vector2(570, 269)
+[node name="Creature_1" parent="FirstLayer/Lutins" instance=ExtResource("5_pmct8")]
+position = Vector2(314.167, 500.833)
 scale = Vector2(0.5, 0.5)
-
-[node name="Lutin2" parent="FirstLayer/Lutins" instance=ExtResource("2_c01ed")]
-position = Vector2(602, 216)
-scale = Vector2(0.25, 0.25)
 
 [node name="MainTheme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_xsin8")
@@ -97,3 +96,10 @@ bus = &"SFX"
 wait_time = 0.5
 
 [connection signal="timeout" from="Footsteps/cooldown" to="." method="_on_timer_timeout"]
+
+[node name="SoundLevel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
