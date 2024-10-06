@@ -3,6 +3,7 @@ extends Node2D
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int):
 	if(Helpers.is_clicked(event)):
 		get_parent().find()
+		get_parent().get_parent().find_child("Lutin_8").show()
 		$AnimatedSprite2D.play("clicked")
 		remove_child($Area2D)
 

@@ -3,7 +3,7 @@ extends Node2D
 @export var hat_color : Color = Color.WHITE
 
 signal is_clicked
-
+	
 func find() -> void:
 	$AudioStreamPlayer.play()
 	disable_click()

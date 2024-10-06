@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dhmrlqgldn0xe"]
+[gd_scene load_steps=7 format=3 uid="uid://dhmrlqgldn0xe"]
 
 [ext_resource type="Texture2D" uid="uid://cloheks4wi6k7" path="res://resources/images/mushroom.svg" id="2_fdmw0"]
 [ext_resource type="Texture2D" uid="uid://brdjx6kn0ao4i" path="res://resources/images/second_layer_right_side_v2.png" id="2_xklxd"]
 [ext_resource type="PackedScene" uid="uid://csj1gonb1kbvn" path="res://scenes/Creatures/creature_2.tscn" id="3_8oiww"]
 [ext_resource type="Texture2D" uid="uid://o1ixon257u7t" path="res://resources/images/SecondLayer_v3.png" id="3_x1lwr"]
 [ext_resource type="PackedScene" uid="uid://babtfa4f6mhjj" path="res://scenes/Creatures/lutin.tscn" id="5_e72g5"]
+[ext_resource type="Texture2D" uid="uid://b4hkd3ha7ecal" path="res://resources/images/Creatures/lutin_hat_shadow.svg" id="6_nd0r5"]
 
 [node name="SecondLayer" type="Parallax2D"]
 scroll_scale = Vector2(0.25, 0.25)
@@ -26,6 +27,12 @@ position = Vector2(916, 283)
 scale = Vector2(0.8, 0.889)
 texture = ExtResource("3_x1lwr")
 
+[node name="Lutin_8" parent="." instance=ExtResource("5_e72g5")]
+visible = false
+position = Vector2(708, 568)
+scale = Vector2(0.03, 0.03)
+hat_color = Color(0.580392, 0.25098, 0.294118, 1)
+
 [node name="Mushroom" type="Sprite2D" parent="."]
 position = Vector2(707.265, 563.422)
 scale = Vector2(0.334951, 0.334951)
@@ -36,3 +43,43 @@ metadata/_edit_lock_ = true
 position = Vector2(705.265, 549.422)
 scale = Vector2(0.36, 0.36)
 metadata/_edit_lock_ = true
+
+[node name="Lutin_2" parent="." instance=ExtResource("5_e72g5")]
+position = Vector2(955, 537)
+rotation = -0.546519
+scale = Vector2(0.05, 0.05)
+hat_color = Color(0.117647, 0.556863, 0.533333, 1)
+
+[node name="LutinHatShadow" type="Sprite2D" parent="."]
+position = Vector2(596, 594)
+rotation = -2.24346
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_nd0r5")
+
+[node name="Lutin_3" parent="." instance=ExtResource("5_e72g5")]
+position = Vector2(602, 597)
+scale = Vector2(0.025, 0.025)
+hat_color = Color(0.792157, 0.92549, 0.380392, 1)
+
+[node name="Lutin_4" parent="." instance=ExtResource("5_e72g5")]
+position = Vector2(1351, 61)
+rotation = -0.707725
+scale = Vector2(0.03, 0.03)
+hat_color = Color(0.901961, 0.988235, 0.364706, 1)
+
+[node name="shadow" type="Sprite2D" parent="."]
+position = Vector2(1428, 721)
+rotation = -2.35754
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_nd0r5")
+
+[node name="Lutin_5" parent="." instance=ExtResource("5_e72g5")]
+position = Vector2(1440, 724)
+scale = Vector2(0.05, 0.05)
+hat_color = Color(1, 0.772549, 0.52549, 1)
+
+[node name="Lutin_6" parent="." instance=ExtResource("5_e72g5")]
+position = Vector2(1794, 274)
+rotation = 2.05012
+scale = Vector2(0.02, 0.02)
+hat_color = Color(0.243137, 0.329412, 0.427451, 1)

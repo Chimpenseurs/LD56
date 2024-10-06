@@ -17,6 +17,7 @@ func _on_lutin_is_clicked() -> void:
 	$noise.play()
 	$chant.volume_db = 15
 	get_parent().find()
+	get_parent().get_parent().find_child(\"Lutin_9\").show()
 "
 
 [sub_resource type="Animation" id="Animation_t635r"]

@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cb4bi7y8ykstg"]
+[gd_scene load_steps=5 format=3 uid="uid://cb4bi7y8ykstg"]
 
 [ext_resource type="Texture2D" uid="uid://c1r5m22xae1nb" path="res://resources/images/third_layer_v3.png" id="1_ir8bg"]
 [ext_resource type="PackedScene" uid="uid://c7145rdwhkc3y" path="res://scenes/Creatures/creature_4.tscn" id="2_glap6"]
+[ext_resource type="PackedScene" uid="uid://babtfa4f6mhjj" path="res://scenes/Creatures/lutin.tscn" id="3_ef0ms"]
+[ext_resource type="PackedScene" uid="uid://dny8tldvn8rbv" path="res://scenes/Creatures/creature_5.tscn" id="4_lp6ao"]
 
 [node name="ThirdLayer" type="Parallax2D"]
 scroll_scale = Vector2(0.1, 0.1)
@@ -15,3 +17,28 @@ flip_h = true
 
 [node name="Creature_4" parent="." instance=ExtResource("2_glap6")]
 position = Vector2(1494, 579)
+metadata/_edit_lock_ = true
+
+[node name="Lutin_7" parent="." instance=ExtResource("3_ef0ms")]
+position = Vector2(674, 143)
+rotation = 1.39704
+scale = Vector2(0.015, 0.015)
+hat_color = Color(0.415686, 0.337255, 0.27451, 1)
+metadata/_edit_lock_ = true
+
+[node name="Creature_5" parent="." instance=ExtResource("4_lp6ao")]
+position = Vector2(125, 235)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_lock_ = true
+
+[node name="Lutin_9" parent="." instance=ExtResource("3_ef0ms")]
+visible = false
+position = Vector2(1496, 498)
+rotation = -0.0569575
+scale = Vector2(0.04, 0.04)
+hat_color = Color(0.972549, 0.909804, 0.827451, 1)
+
+[node name="Lutin_10" parent="." instance=ExtResource("3_ef0ms")]
+position = Vector2(329, 232)
+scale = Vector2(0.04, 0.04)
+hat_color = Color(0.941176, 0.690196, 0.513726, 1)

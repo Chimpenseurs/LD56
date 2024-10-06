@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://wxlmykoxicxh"]
 
 [ext_resource type="PackedScene" uid="uid://h63uscgmwm1t" path="res://scenes/lutin.tscn" id="1_01uyk"]
-[ext_resource type="Texture2D" uid="uid://cvvdy2egfx3oi" path="res://icon.svg" id="1_m3tne"]
+[ext_resource type="Texture2D" uid="uid://doem222j08agm" path="res://resources/images/Creatures/lutin.svg" id="2_mhfui"]
 [ext_resource type="Texture2D" uid="uid://b7uk7xv8k15xd" path="res://resources/images/Creatures/Creature_1_Hole/hole.svg" id="2_s82nd"]
 [ext_resource type="AudioStream" uid="uid://b4e2j8dl85rvp" path="res://resources/sfx/digging.wav" id="4_4dok7"]
 
@@ -64,9 +64,9 @@ stream_0/stream = ExtResource("4_4dok7")
 script = SubResource("GDScript_hih6n")
 
 [node name="Creature" type="Sprite2D" parent="Creature_1" index="0"]
-position = Vector2(0, 5)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_m3tne")
+position = Vector2(-1, -11)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_mhfui")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Creature_1" index="1"]
 sprite_frames = SubResource("SpriteFrames_8xc3t")
