@@ -1,0 +1,169 @@
+[gd_scene load_steps=7 format=3 uid="uid://0053qxe7jhi5"]
+
+[ext_resource type="FontFile" uid="uid://dsgfusu2nhuj2" path="res://resources/fonts/IrishUncialfabeta-Bold.ttf" id="1_80pi6"]
+[ext_resource type="Script" path="res://scripts/game_over.gd" id="1_xgic5"]
+[ext_resource type="Texture2D" uid="uid://5d3chxas6ay3" path="res://resources/images/notfound.png" id="3_jttmj"]
+[ext_resource type="AudioStream" uid="uid://dcu2h8uobqcyj" path="res://resources/sfx/oy.wav" id="3_omjq6"]
+[ext_resource type="Texture2D" uid="uid://mopng53x0bnc" path="res://resources/images/Creatures/Creature_2_Ladybird/photo.png" id="4_8crk1"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_46ve6"]
+random_pitch = 1.15
+streams_count = 1
+stream_0/stream = ExtResource("3_omjq6")
+
+[node name="GameOver" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(631, 358)
+script = ExtResource("1_xgic5")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -642.0
+offset_top = -359.0
+offset_right = 637.0
+offset_bottom = 363.0
+pivot_offset = Vector2(1, 0)
+color = Color(0.443137, 0.443137, 0.443137, 0.760784)
+
+[node name="message" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -181.5
+offset_top = -87.5
+offset_right = 181.5
+offset_bottom = 87.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(-457.5, -274.5)
+color = Color(0.489622, 0.489622, 0.489622, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="message"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 44.0
+offset_right = 351.0
+offset_bottom = 151.0
+theme_override_fonts/normal_font = ExtResource("1_80pi6")
+theme_override_font_sizes/bold_italics_font_size = 1
+theme_override_font_sizes/normal_font_size = 21
+text = "Diner’s ready ! Get back home !"
+tab_size = 3
+
+[node name="Button" type="Button" parent="message"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -36.0
+offset_top = -60.0
+offset_right = 36.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_80pi6")
+text = "go home"
+
+[node name="EndMenu" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -637.0
+offset_top = -359.0
+offset_right = -597.0
+offset_bottom = -319.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="EndMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 439.0
+offset_top = 172.0
+offset_right = 821.0
+offset_bottom = 260.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(188, 26)
+theme_override_colors/default_color = Color(0.969029, 0.974905, 0.976206, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_80pi6")
+theme_override_font_sizes/normal_font_size = 40
+text = "Thanks for playing"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EndMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 546.0
+offset_top = 290.0
+offset_right = 684.0
+offset_bottom = 392.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="replay" type="Button" parent="EndMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_80pi6")
+text = "Play Again"
+
+[node name="HSeparator" type="HSeparator" parent="EndMenu/VBoxContainer"]
+layout_mode = 2
+
+[node name="menu" type="Button" parent="EndMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_80pi6")
+text = "Return to menu"
+
+[node name="HSeparator2" type="HSeparator" parent="EndMenu/VBoxContainer"]
+layout_mode = 2
+
+[node name="quit" type="Button" parent="EndMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_80pi6")
+text = "Quit"
+
+[node name="ladybug" type="Control" parent="EndMenu"]
+visible = false
+anchors_preset = 0
+offset_left = 98.0
+offset_top = 60.0
+offset_right = 138.0
+offset_bottom = 100.0
+rotation = -0.244979
+
+[node name="notfound" type="TextureRect" parent="EndMenu/ladybug"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_jttmj")
+
+[node name="found" type="TextureRect" parent="EndMenu/ladybug"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_8crk1")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_46ve6")
+
+[connection signal="pressed" from="message/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="EndMenu/VBoxContainer/quit" to="." method="_on_quit_pressed"]

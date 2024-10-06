@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://c7iggml53ca0"]
+[gd_scene load_steps=14 format=3 uid="uid://c7iggml53ca0"]
 
 [ext_resource type="Script" path="res://scripts/scene.gd" id="1_7cxck"]
 [ext_resource type="PackedScene" uid="uid://cb4bi7y8ykstg" path="res://scenes/third_layer.tscn" id="2_d6ee5"]
+[ext_resource type="PackedScene" uid="uid://0053qxe7jhi5" path="res://game_over.tscn" id="2_ualug"]
 [ext_resource type="PackedScene" uid="uid://dhmrlqgldn0xe" path="res://scenes/second_layer.tscn" id="3_nsbkf"]
 [ext_resource type="PackedScene" uid="uid://cynkgw7gnyys5" path="res://scenes/first_layer.tscn" id="4_1buqi"]
 [ext_resource type="AudioStream" uid="uid://c1npbchrjpn1a" path="res://resources/musics/main-theme.ogg" id="6_xsin8"]
@@ -26,9 +27,6 @@ script = ExtResource("1_7cxck")
 
 [node name="Trees" type="Node2D" parent="."]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-
 [node name="ThirdLayer" parent="." instance=ExtResource("2_d6ee5")]
 scroll_offset = Vector2(0, 2)
 
@@ -38,11 +36,21 @@ scroll_offset = Vector2(171, -25)
 
 [node name="FirstLayer" parent="." instance=ExtResource("4_1buqi")]
 
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="GameOver" parent="Camera2D" instance=ExtResource("2_ualug")]
+visible = false
+offset_left = 643.0
+offset_top = 358.0
+offset_right = 643.0
+offset_bottom = 358.0
+
 [node name="MainTheme" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("6_xsin8")
 autoplay = true
 bus = &"Background"
-parameters/looping = true
 
 [node name="Footsteps" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_3k5ss")
