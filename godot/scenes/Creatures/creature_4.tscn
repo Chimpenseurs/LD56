@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://cagjwht7qqaak" path="res://resources/sfx/troll-chant.ogg" id="5_steg1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_31e7w"]
-size = Vector2(920, 985)
+size = Vector2(815, 985)
 
 [sub_resource type="GDScript" id="GDScript_5bmp5"]
 script/source = "extends Node2D
@@ -66,7 +66,8 @@ stream_0/stream = ExtResource("5_steg1")
 scale = Vector2(0.2, 0.2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
-position = Vector2(-15, 22.5)
+position = Vector2(12.5, 22.5)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_31e7w")
 
 [node name="Creature_4" type="Node2D" parent="." index="2"]

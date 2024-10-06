@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dhmrlqgldn0xe"]
+[gd_scene load_steps=9 format=3 uid="uid://dhmrlqgldn0xe"]
 
 [ext_resource type="Texture2D" uid="uid://cloheks4wi6k7" path="res://resources/images/mushroom.svg" id="2_fdmw0"]
 [ext_resource type="Texture2D" uid="uid://brdjx6kn0ao4i" path="res://resources/images/second_layer_right_side_v2.png" id="2_xklxd"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://o1ixon257u7t" path="res://resources/images/SecondLayer_v3.png" id="3_x1lwr"]
 [ext_resource type="PackedScene" uid="uid://babtfa4f6mhjj" path="res://scenes/Creatures/lutin.tscn" id="5_e72g5"]
 [ext_resource type="Texture2D" uid="uid://b4hkd3ha7ecal" path="res://resources/images/Creatures/lutin_hat_shadow.svg" id="6_nd0r5"]
+[ext_resource type="Texture2D" uid="uid://djkrqc00w6kr6" path="res://resources/images/Creatures/Creature_6_deer/shadow.svg" id="7_e4a4x"]
+[ext_resource type="PackedScene" uid="uid://c7y8wg6hne610" path="res://scenes/Creatures/creature_6.tscn" id="8_knkyr"]
 
 [node name="SecondLayer" type="Parallax2D"]
 scroll_scale = Vector2(0.25, 0.25)
@@ -83,3 +85,20 @@ position = Vector2(1794, 274)
 rotation = 2.05012
 scale = Vector2(0.02, 0.02)
 hat_color = Color(0.243137, 0.329412, 0.427451, 1)
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(1729, 729)
+rotation = -0.135001
+scale = Vector2(0.839766, 1)
+texture = ExtResource("7_e4a4x")
+
+[node name="Creature_6_Deer" parent="." instance=ExtResource("8_knkyr")]
+position = Vector2(1760, 529)
+scale = Vector2(0.4, 0.4)
+
+[node name="Lutin_11" parent="." instance=ExtResource("5_e72g5")]
+visible = false
+position = Vector2(1903, 724)
+rotation = 0.443997
+scale = Vector2(0.04, 0.04)
+hat_color = Color(0.811765, 0.811765, 0.811765, 1)

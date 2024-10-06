@@ -39,6 +39,7 @@ scale = Vector2(0.04, 0.04)
 hat_color = Color(0.972549, 0.909804, 0.827451, 1)
 
 [node name="Lutin_10" parent="." instance=ExtResource("3_ef0ms")]
+visible = false
 position = Vector2(329, 232)
 scale = Vector2(0.04, 0.04)
 hat_color = Color(0.941176, 0.690196, 0.513726, 1)

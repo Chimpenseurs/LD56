@@ -1,0 +1,102 @@
+[gd_scene load_steps=10 format=3 uid="uid://c7y8wg6hne610"]
+
+[ext_resource type="PackedScene" uid="uid://h63uscgmwm1t" path="res://scenes/lutin.tscn" id="1_6bone"]
+[ext_resource type="Texture2D" uid="uid://bkdig7nntnrwc" path="res://resources/images/Creatures/Creature_6_deer/Deer.png" id="2_qb020"]
+[ext_resource type="Texture2D" uid="uid://bh45u0b7awv2h" path="res://resources/images/Creatures/Creature_6_deer/Deer_2.png" id="3_btavw"]
+[ext_resource type="Texture2D" uid="uid://xahp7eaqf32l" path="res://resources/images/Creatures/Creature_6_deer/Deer_sleepy.png" id="4_ttbxb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_31e7w"]
+size = Vector2(585, 375)
+
+[sub_resource type="GDScript" id="GDScript_5bmp5"]
+script/source = "extends Node2D
+
+func _on_lutin_is_clicked() -> void:
+	$AnimationPlayer.play(\"stone_to_squirrel\")
+	$noise.play()
+	$chant.volume_db = 15
+	get_parent().find()
+	get_parent().get_parent().find_child(\"Lutin_11\").show()
+"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2ies2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qb020")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_btavw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.5
+}]
+
+[sub_resource type="Animation" id="Animation_t635r"]
+resource_name = "stone_to_squirrel"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Creature_6/Creature5Sleepy:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Creature_6/Creature5Awake:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4rqfx"]
+_data = {
+"stone_to_squirrel": SubResource("Animation_t635r")
+}
+
+[node name="Lutin" instance=ExtResource("1_6bone")]
+scale = Vector2(0.2, 0.2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(-52.5, 357.5)
+shape = SubResource("RectangleShape2D_31e7w")
+
+[node name="Creature_6" type="Node2D" parent="." index="2"]
+script = SubResource("GDScript_5bmp5")
+
+[node name="Creature5Awake" type="AnimatedSprite2D" parent="Creature_6" index="0"]
+self_modulate = Color(1, 1, 1, 0)
+sprite_frames = SubResource("SpriteFrames_2ies2")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Creature_6" index="1"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_4rqfx")
+}
+
+[node name="Creature5Sleepy" type="Sprite2D" parent="Creature_6" index="2"]
+texture = ExtResource("4_ttbxb")
+
+[node name="noise" type="AudioStreamPlayer2D" parent="Creature_6" index="3"]
+volume_db = 20.428
+bus = &"SFX"
+
+[node name="chant" type="AudioStreamPlayer2D" parent="Creature_6" index="4"]
+volume_db = -80.0
+autoplay = true
+bus = &"SFX"
+
+[connection signal="is_clicked" from="." to="Creature_6" method="_on_lutin_is_clicked"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
