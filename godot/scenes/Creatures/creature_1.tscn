@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://tcb04qb70j0u"]
+[gd_scene load_steps=10 format=3 uid="uid://wxlmykoxicxh"]
 
+[ext_resource type="PackedScene" uid="uid://h63uscgmwm1t" path="res://scenes/lutin.tscn" id="1_01uyk"]
 [ext_resource type="Texture2D" uid="uid://cvvdy2egfx3oi" path="res://icon.svg" id="1_m3tne"]
 [ext_resource type="Texture2D" uid="uid://b7uk7xv8k15xd" path="res://resources/images/Creatures/Creature_1_Hole/hole.svg" id="2_s82nd"]
 
@@ -13,6 +14,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int):
 		frame_id+=1
 		if(frame_id == 2):
 			remove_child($Area2D)
+			get_parent().find()
 		$AnimatedSprite2D.set_frame(frame_id)
 "
 
@@ -49,23 +51,24 @@ animations = [{
 radius = 45.0
 height = 208.0
 
-[node name="Creature_1" type="Node2D"]
-position = Vector2(149, 86)
+[node name="Lutin" instance=ExtResource("1_01uyk")]
+
+[node name="Creature_1" type="Node2D" parent="." index="1"]
 script = SubResource("GDScript_hih6n")
 
-[node name="Creature" type="Sprite2D" parent="."]
+[node name="Creature" type="Sprite2D" parent="Creature_1" index="0"]
 position = Vector2(0, 5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_m3tne")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Creature_1" index="1"]
 sprite_frames = SubResource("SpriteFrames_8xc3t")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="Creature_1" index="2"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Creature_1/Area2D" index="0"]
 position = Vector2(2, -6)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_78kgf")
 
-[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="input_event" from="Creature_1/Area2D" to="Creature_1" method="_on_area_2d_input_event"]
