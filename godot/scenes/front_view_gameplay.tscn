@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c7iggml53ca0"]
+[gd_scene load_steps=14 format=3 uid="uid://c7iggml53ca0"]
 
 [ext_resource type="Script" path="res://scripts/scene.gd" id="1_7cxck"]
 [ext_resource type="Texture2D" uid="uid://dwbhy5w50b5b0" path="res://resources/images/first_layer.svg" id="2_3pl5l"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://nhqfiy71mjns" path="res://resources/sfx/footstep03.wav" id="9_tcpgp"]
 [ext_resource type="AudioStream" uid="uid://dpy7e5mlmq63k" path="res://resources/sfx/footstep04.wav" id="10_exiys"]
 [ext_resource type="AudioStream" uid="uid://by6p13j62pgc0" path="res://resources/sfx/footstep05.wav" id="11_w6i3q"]
+[ext_resource type="AudioStream" uid="uid://bg621y3unx0kx" path="res://resources/sfx/birds.ogg" id="12_bfnfm"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3k5ss"]
 random_pitch = 1.39
@@ -85,7 +86,7 @@ scale = Vector2(0.5, 0.5)
 stream = ExtResource("6_xsin8")
 autoplay = true
 bus = &"Background"
-parameters/looping = false
+parameters/looping = true
 
 [node name="Footsteps" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_3k5ss")
@@ -95,11 +96,17 @@ bus = &"SFX"
 [node name="cooldown" type="Timer" parent="Footsteps"]
 wait_time = 0.5
 
-[connection signal="timeout" from="Footsteps/cooldown" to="." method="_on_timer_timeout"]
-
 [node name="SoundLevel" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="birds" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_bfnfm")
+volume_db = -10.576
+autoplay = true
+bus = &"SFX"
+parameters/looping = true
+
+[connection signal="timeout" from="Footsteps/cooldown" to="." method="_on_timer_timeout"]
