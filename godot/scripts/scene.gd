@@ -1,6 +1,8 @@
 extends Node2D
 
 
+var can_play_footstep = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -13,6 +15,12 @@ func _process(delta: float) -> void:
 var speed_camera = 8.0
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:
+		if event.keycode == KEY_RIGHT or event.keycode == KEY_LEFT:
+			if can_play_footstep:
+				$Footsteps.play()
+				can_play_footstep = false
+				$Footsteps/cooldown.start()
+				
 		if event.keycode == KEY_RIGHT:
 			$Camera2D.position.x += speed_camera
 			$Camera2D.position.x = min($Camera2D.position.x, 632.0)
@@ -25,3 +33,6 @@ func _input(event: InputEvent) -> void:
 		elif event.keycode == KEY_UP:
 			$Camera2D.position.y -= speed_camera
 			$Camera2D.position.y = max($Camera2D.position.y, -1020)
+
+func _on_timer_timeout():
+	can_play_footstep = true
