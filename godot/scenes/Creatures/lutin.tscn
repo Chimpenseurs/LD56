@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://babtfa4f6mhjj"]
+[gd_scene load_steps=13 format=3 uid="uid://babtfa4f6mhjj"]
 
 [ext_resource type="PackedScene" uid="uid://h63uscgmwm1t" path="res://scenes/lutin.tscn" id="1_avbn2"]
 [ext_resource type="Texture2D" uid="uid://doem222j08agm" path="res://resources/images/Creatures/lutin.svg" id="2_gtwc1"]
 [ext_resource type="Texture2D" uid="uid://d0haw4t8vyfpj" path="res://resources/images/Creatures/lutin_hat.svg" id="3_fkgmp"]
+[ext_resource type="AudioStream" uid="uid://db0caq8olpo5i" path="res://resources/sfx/lutin-found.wav" id="4_1ruip"]
 [ext_resource type="Texture2D" uid="uid://bmkcj3bcckupf" path="res://resources/images/Creatures/lutin_red_hat.svg" id="4_nb37v"]
+[ext_resource type="AudioStream" uid="uid://dbmcaogulx4cd" path="res://resources/sfx/lutin-chant.ogg" id="6_d0x0g"]
 
 [sub_resource type="GDScript" id="GDScript_5bmp5"]
 script/source = "extends Node2D
@@ -14,8 +16,14 @@ func _ready():
 func _on_lutin_is_clicked() -> void:
 	$AnimationPlayer.play(\"clicked\")
 	$noise.play()
+	$chant.volume_db = 15
 	get_parent().find()
 "
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_u105f"]
+random_pitch = 1.15
+streams_count = 1
+stream_0/stream = ExtResource("4_1ruip")
 
 [sub_resource type="Animation" id="Animation_1tgru"]
 length = 0.001
@@ -101,6 +109,11 @@ _data = {
 "clicked": SubResource("Animation_b06wx")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pafdy"]
+random_pitch = 1.15
+streams_count = 1
+stream_0/stream = ExtResource("6_d0x0g")
+
 [node name="Lutin" instance=ExtResource("1_avbn2")]
 scale = Vector2(0.2, 0.2)
 
@@ -118,7 +131,8 @@ texture = ExtResource("4_nb37v")
 modulate = Color(1, 1, 1, 0)
 texture = ExtResource("2_gtwc1")
 
-[node name="noise" type="AudioStreamPlayer" parent="Lutin" index="2"]
+[node name="noise" type="AudioStreamPlayer2D" parent="Lutin" index="2"]
+stream = SubResource("AudioStreamRandomizer_u105f")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Lutin" index="3"]
 libraries = {
@@ -129,6 +143,11 @@ libraries = {
 position = Vector2(0, -630)
 scale = Vector2(1.15353, 1)
 texture = ExtResource("3_fkgmp")
+
+[node name="chant" type="AudioStreamPlayer2D" parent="Lutin" index="5"]
+stream = SubResource("AudioStreamRandomizer_pafdy")
+volume_db = -80.0
+autoplay = true
 
 [connection signal="is_clicked" from="." to="Lutin" method="_on_lutin_is_clicked"]
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
