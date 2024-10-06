@@ -10,16 +10,16 @@
 scale = Vector2(1.2, 1.2)
 scroll_scale = Vector2(0.3, 0.3)
 
-[node name="Creature_3" parent="." instance=ExtResource("1_twav2")]
-position = Vector2(642.5, 655)
-scale = Vector2(0.05, 0.05)
-
 [node name="Ground" type="Sprite2D" parent="."]
 position = Vector2(555, 611.667)
 scale = Vector2(1.042, 1)
 texture = ExtResource("2_viuol")
 region_enabled = true
 region_rect = Rect2(0, 0, 712.132, 229)
+
+[node name="Creature_3" parent="." instance=ExtResource("1_twav2")]
+position = Vector2(642.5, 655)
+scale = Vector2(0.05, 0.05)
 
 [node name="Background" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
