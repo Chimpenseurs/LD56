@@ -24,9 +24,10 @@ region_rect = Rect2(1419.94, 0, 433.674, 1408)
 metadata/_edit_lock_ = true
 
 [node name="Mushroom" type="Sprite2D" parent="."]
-position = Vector2(725, 594)
+position = Vector2(723, 595)
 scale = Vector2(0.334951, 0.334951)
 texture = ExtResource("2_fdmw0")
+metadata/_edit_lock_ = true
 
 [node name="Lutin" parent="." instance=ExtResource("3_8oiww")]
 position = Vector2(721, 581)
