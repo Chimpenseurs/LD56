@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cynkgw7gnyys5"]
+
+[ext_resource type="Texture2D" uid="uid://dwbhy5w50b5b0" path="res://resources/images/first_layer.svg" id="1_ug424"]
+[ext_resource type="PackedScene" uid="uid://wxlmykoxicxh" path="res://scenes/Creatures/creature_1.tscn" id="2_wayj3"]
+
+[node name="FirstLayer" type="Parallax2D"]
+scale = Vector2(1.2, 1.2)
+scroll_scale = Vector2(0.3, 0.3)
+
+[node name="Background" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="FirstLayer" type="Sprite2D" parent="Background"]
+position = Vector2(646.667, 266.667)
+scale = Vector2(0.667839, 0.671296)
+texture = ExtResource("1_ug424")
+
+[node name="Lutins" type="Node2D" parent="."]
+position = Vector2(145.833, 186.667)
+
+[node name="Creature_1" parent="Lutins" instance=ExtResource("2_wayj3")]
+position = Vector2(314.167, 500.833)
+scale = Vector2(0.5, 0.5)

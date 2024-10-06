@@ -1,12 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://c7iggml53ca0"]
+[gd_scene load_steps=13 format=3 uid="uid://c7iggml53ca0"]
 
 [ext_resource type="Script" path="res://scripts/scene.gd" id="1_7cxck"]
-[ext_resource type="Texture2D" uid="uid://dwbhy5w50b5b0" path="res://resources/images/first_layer.svg" id="2_3pl5l"]
-[ext_resource type="Texture2D" uid="uid://det60bhj7vs1j" path="res://resources/images/third_layer.png" id="2_6bg1v"]
-[ext_resource type="Texture2D" uid="uid://d17ynhbvmxsew" path="res://resources/images/second_layer_v2.png" id="2_qvcf4"]
-[ext_resource type="Texture2D" uid="uid://cloheks4wi6k7" path="res://resources/images/mushroom.svg" id="4_86ioq"]
-[ext_resource type="PackedScene" uid="uid://csj1gonb1kbvn" path="res://scenes/Creatures/creature_2.tscn" id="4_rsjum"]
-[ext_resource type="PackedScene" uid="uid://wxlmykoxicxh" path="res://scenes/Creatures/creature_1.tscn" id="5_pmct8"]
+[ext_resource type="PackedScene" uid="uid://cb4bi7y8ykstg" path="res://scenes/third_layer.tscn" id="2_d6ee5"]
+[ext_resource type="PackedScene" uid="uid://dhmrlqgldn0xe" path="res://scenes/second_layer.tscn" id="3_nsbkf"]
+[ext_resource type="PackedScene" uid="uid://cynkgw7gnyys5" path="res://scenes/first_layer.tscn" id="4_1buqi"]
 [ext_resource type="AudioStream" uid="uid://c1npbchrjpn1a" path="res://resources/musics/main-theme.ogg" id="6_xsin8"]
 [ext_resource type="AudioStream" uid="uid://djwr32giejafs" path="res://resources/sfx/footstep01.wav" id="7_1g57j"]
 [ext_resource type="AudioStream" uid="uid://8cywiois5fho" path="res://resources/sfx/footstep02.wav" id="8_aari5"]
@@ -32,68 +29,12 @@ script = ExtResource("1_7cxck")
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 
-[node name="ThirdLayer" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0.1, 0.1)
+[node name="ThirdLayer" parent="." instance=ExtResource("2_d6ee5")]
 
-[node name="ThirdLayer2" type="Sprite2D" parent="ThirdLayer"]
-position = Vector2(1421, 112)
-scale = Vector2(0.64, 0.64)
-texture = ExtResource("2_6bg1v")
-region_enabled = true
-region_rect = Rect2(1026.4, 0, 381.598, 1232)
+[node name="SecondLayer" parent="." instance=ExtResource("3_nsbkf")]
+scroll_offset = Vector2(64, -5)
 
-[node name="ThirdLayer" type="Sprite2D" parent="ThirdLayer"]
-position = Vector2(561, 184)
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("2_6bg1v")
-flip_h = true
-
-[node name="SecondLayer" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0.25, 0.25)
-
-[node name="SecondLayerV2" type="Sprite2D" parent="SecondLayer"]
-position = Vector2(334, 322)
-scale = Vector2(0.9, 0.9)
-texture = ExtResource("2_qvcf4")
-flip_h = true
-
-[node name="SecondLayerV3" type="Sprite2D" parent="SecondLayer"]
-position = Vector2(1365, 289)
-scale = Vector2(0.81, 0.81)
-texture = ExtResource("2_qvcf4")
-flip_h = true
-region_enabled = true
-region_rect = Rect2(1419.94, 0, 433.674, 1408)
-
-[node name="Mushroom" type="Sprite2D" parent="SecondLayer"]
-position = Vector2(763, 590)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_86ioq")
-
-[node name="Creatures" type="Node2D" parent="SecondLayer"]
-
-[node name="Creature_2" parent="SecondLayer/Creatures" instance=ExtResource("4_rsjum")]
-position = Vector2(760, 578)
-scale = Vector2(0.3, 0.3)
-
-[node name="FirstLayer" type="Parallax2D" parent="."]
-scale = Vector2(1.2, 1.2)
-scroll_scale = Vector2(0.3, 0.3)
-
-[node name="Background" type="Node2D" parent="FirstLayer"]
-metadata/_edit_lock_ = true
-
-[node name="FirstLayer" type="Sprite2D" parent="FirstLayer/Background"]
-position = Vector2(646.667, 266.667)
-scale = Vector2(0.667839, 0.671296)
-texture = ExtResource("2_3pl5l")
-
-[node name="Creatures" type="Node2D" parent="FirstLayer"]
-position = Vector2(145.833, 186.667)
-
-[node name="Creature_1" parent="FirstLayer/Creatures" instance=ExtResource("5_pmct8")]
-position = Vector2(314.167, 500.833)
-scale = Vector2(0.5, 0.5)
+[node name="FirstLayer" parent="." instance=ExtResource("4_1buqi")]
 
 [node name="MainTheme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_xsin8")
