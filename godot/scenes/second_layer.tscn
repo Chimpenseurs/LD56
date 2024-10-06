@@ -1,12 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhmrlqgldn0xe"]
+[gd_scene load_steps=6 format=3 uid="uid://dhmrlqgldn0xe"]
 
 [ext_resource type="Texture2D" uid="uid://d17ynhbvmxsew" path="res://resources/images/second_layer_v2.png" id="1_xvtvf"]
 [ext_resource type="Texture2D" uid="uid://cloheks4wi6k7" path="res://resources/images/mushroom.svg" id="2_fdmw0"]
 [ext_resource type="Texture2D" uid="uid://brdjx6kn0ao4i" path="res://resources/images/second_layer_right_side_v2.png" id="2_xklxd"]
 [ext_resource type="PackedScene" uid="uid://csj1gonb1kbvn" path="res://scenes/Creatures/creature_2.tscn" id="3_8oiww"]
+[ext_resource type="PackedScene" uid="uid://babtfa4f6mhjj" path="res://scenes/Creatures/lutin.tscn" id="5_e72g5"]
 
 [node name="SecondLayer" type="Parallax2D"]
 scroll_scale = Vector2(0.25, 0.25)
+
+[node name="Lutin_1" parent="." instance=ExtResource("5_e72g5")]
+position = Vector2(251, 164)
+rotation = 1.60449
+scale = Vector2(0.02, 0.02)
+hat_color = Color(0.992157, 0.705882, 0.517647, 1)
 
 [node name="SecondLayerV2" type="Sprite2D" parent="."]
 position = Vector2(334, 322)
@@ -18,6 +25,7 @@ metadata/_edit_lock_ = true
 [node name="SecondLayerRightSide" type="Sprite2D" parent="."]
 position = Vector2(1804, 152)
 texture = ExtResource("2_xklxd")
+metadata/_edit_lock_ = true
 
 [node name="Mushroom" type="Sprite2D" parent="."]
 position = Vector2(723, 595)
@@ -25,6 +33,13 @@ scale = Vector2(0.334951, 0.334951)
 texture = ExtResource("2_fdmw0")
 metadata/_edit_lock_ = true
 
-[node name="Lutin" parent="." instance=ExtResource("3_8oiww")]
+[node name="Lutin_2" parent="." instance=ExtResource("5_e72g5")]
+position = Vector2(97, 667)
+rotation = 1.60449
+scale = Vector2(0.02, 0.02)
+hat_color = Color(0.992157, 0.705882, 0.517647, 1)
+
+[node name="Creature_2" parent="." instance=ExtResource("3_8oiww")]
 position = Vector2(721, 581)
 scale = Vector2(0.36, 0.36)
+metadata/_edit_lock_ = true

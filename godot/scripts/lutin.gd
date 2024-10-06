@@ -1,10 +1,8 @@
 extends Node2D
 
-signal is_clicked
+@export var hat_color : Color = Color.WHITE
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+signal is_clicked
 
 func find() -> void:
 	$AudioStreamPlayer.play()
