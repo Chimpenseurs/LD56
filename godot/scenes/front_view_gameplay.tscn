@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c7iggml53ca0"]
+[gd_scene load_steps=19 format=3 uid="uid://c7iggml53ca0"]
 
 [ext_resource type="Script" path="res://scripts/scene.gd" id="1_7cxck"]
 [ext_resource type="PackedScene" uid="uid://cb4bi7y8ykstg" path="res://scenes/third_layer.tscn" id="2_d6ee5"]
@@ -16,6 +16,9 @@
 [sub_resource type="GDScript" id="GDScript_8br6e"]
 script/source = "extends Camera2D
 
+var move_right = 0
+var move_top = 0
+
 func _process(delta_time : float):
 	var mouse_position = Helpers.get_mouse_position()
 	var viewport_resolution = Helpers.get_resolution()
@@ -23,22 +26,60 @@ func _process(delta_time : float):
 	var speed = 400
 	var offset = Vector2.ZERO
 	var is_moving_x = false
-	if(mouse_normalized_position.x < 0.02):
-		offset.x -= speed * delta_time
-		is_moving_x = true
-	if(mouse_normalized_position.x > 0.98):
+	if(move_right == -1):
 		offset.x += speed * delta_time
 		is_moving_x = true
-	if(mouse_normalized_position.y < 0.02):
-		offset.y -= speed * delta_time
-	if(mouse_normalized_position.y > 0.98):
+	if(move_right == 1):
+		offset.x -= speed * delta_time
+		is_moving_x = true
+	if(move_top == -1):
 		offset.y += speed * delta_time
+	if(move_top == 1):
+		offset.y -= speed * delta_time
 		
 	get_parent().update_camera(offset, is_moving_x)
 
 func _on_sound_mouse_exited() -> void:
 	$Sound.focus_mode = Control.FocusMode.FOCUS_NONE
+
+
+func _on_down_mouse_entered() -> void:
+	move_top = -1
+
+func _on_top_mouse_entered() -> void:
+	move_top = 1
+
+func _on_right_mouse_entered() -> void:
+	move_right = 1
+
+func _on_left_mouse_entered() -> void:
+	move_right = -1
+	
+func _on_right_mouse_exited() -> void:
+	move_right = 0
+
+func _on_left_mouse_exited() -> void:
+	move_right = 0
+
+func _on_top_mouse_exited() -> void:
+	move_top = 0
+
+func _on_down_mouse_exited() -> void:
+	move_top = 0
+ 
 "
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x4226"]
+size = Vector2(1279, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gfk3x"]
+size = Vector2(1274, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6eym5"]
+size = Vector2(32, 729)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xcu4x"]
+size = Vector2(30, 725)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3k5ss"]
 random_pitch = 1.39
@@ -86,6 +127,34 @@ focus_mode = 1
 value = 50.0
 scrollable = false
 
+[node name="Down" type="Area2D" parent="Camera2D"]
+position = Vector2(0, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Down"]
+position = Vector2(641, 706)
+shape = SubResource("RectangleShape2D_x4226")
+
+[node name="Top" type="Area2D" parent="Camera2D"]
+position = Vector2(5, -690)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Top"]
+position = Vector2(640, 703.5)
+shape = SubResource("RectangleShape2D_gfk3x")
+
+[node name="Right" type="Area2D" parent="Camera2D"]
+position = Vector2(-3, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Right"]
+position = Vector2(17, 365)
+shape = SubResource("RectangleShape2D_6eym5")
+
+[node name="Left" type="Area2D" parent="Camera2D"]
+position = Vector2(1, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Left"]
+position = Vector2(1265, 361)
+shape = SubResource("RectangleShape2D_xcu4x")
+
 [node name="MainTheme" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("6_xsin8")
@@ -119,4 +188,12 @@ layout_mode = 2
 
 [connection signal="mouse_exited" from="Camera2D/Sound" to="Camera2D" method="_on_sound_mouse_exited"]
 [connection signal="value_changed" from="Camera2D/Sound" to="." method="_on_sound_value_changed"]
+[connection signal="mouse_entered" from="Camera2D/Down" to="Camera2D" method="_on_down_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/Down" to="Camera2D" method="_on_down_mouse_exited"]
+[connection signal="mouse_entered" from="Camera2D/Top" to="Camera2D" method="_on_top_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/Top" to="Camera2D" method="_on_top_mouse_exited"]
+[connection signal="mouse_entered" from="Camera2D/Right" to="Camera2D" method="_on_right_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/Right" to="Camera2D" method="_on_right_mouse_exited"]
+[connection signal="mouse_entered" from="Camera2D/Left" to="Camera2D" method="_on_left_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/Left" to="Camera2D" method="_on_left_mouse_exited"]
 [connection signal="timeout" from="Footsteps/cooldown" to="." method="_on_timer_timeout"]

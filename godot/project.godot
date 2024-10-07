@@ -25,7 +25,8 @@ Global="*res://Global.gd"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/resizable=false
-window/stretch/mode="canvas_items"
+window/size/borderless=true
+window/stretch/mode="viewport"
 window/vsync/vsync_mode=0
 
 [rendering]

@@ -57,3 +57,8 @@ func _on_gameover_gotomainmenu():
 func _on_sound_value_changed(value: float) -> void:
 	var v = 20.0 * (100.0 - value) / 100.0
 	AudioServer.set_bus_volume_db(0, -v)
+
+
+
+func _on_down_mouse_exited() -> void:
+	pass # Replace with function body.
