@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cynkgw7gnyys5"]
+[gd_scene load_steps=9 format=3 uid="uid://cynkgw7gnyys5"]
 
 [ext_resource type="PackedScene" uid="uid://bxa20eakimwpg" path="res://scenes/Creatures/creature_3.tscn" id="1_twav2"]
 [ext_resource type="Texture2D" uid="uid://dwbhy5w50b5b0" path="res://resources/images/first_layer.svg" id="1_ug424"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://wxlmykoxicxh" path="res://scenes/Creatures/creature_1.tscn" id="2_wayj3"]
 [ext_resource type="Texture2D" uid="uid://m61h3cwxmqq1" path="res://resources/images/first_layer_ground_right.png" id="3_okywv"]
 [ext_resource type="Texture2D" uid="uid://cabu2bnup4ljf" path="res://resources/images/flowers.png" id="4_kxo54"]
+[ext_resource type="PackedScene" uid="uid://dqntpxx1eto74" path="res://scenes/Creatures/creature_7.tscn" id="6_1wo6y"]
 [ext_resource type="PackedScene" uid="uid://babtfa4f6mhjj" path="res://scenes/Creatures/lutin.tscn" id="7_nwsd2"]
 
 [node name="FirstLayer" type="Parallax2D"]
@@ -43,6 +44,9 @@ position = Vector2(145.833, 186.667)
 [node name="Creature_1" parent="Creatures" instance=ExtResource("2_wayj3")]
 position = Vector2(248.334, 414.166)
 scale = Vector2(0.5, 0.5)
+
+[node name="Lutin" parent="Creatures" instance=ExtResource("6_1wo6y")]
+position = Vector2(899.167, -250.834)
 
 [node name="Flowers" type="Sprite2D" parent="."]
 position = Vector2(2350, 460)
