@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://0053qxe7jhi5"]
+[gd_scene load_steps=26 format=3 uid="uid://0053qxe7jhi5"]
 
 [ext_resource type="FontFile" uid="uid://dsgfusu2nhuj2" path="res://resources/fonts/IrishUncialfabeta-Bold.ttf" id="1_80pi6"]
 [ext_resource type="Script" path="res://scripts/game_over.gd" id="1_xgic5"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dsdqc0m5sa3wo" path="res://resources/images/Creatures/Creature_5_ent/photo.png" id="9_bevr6"]
 [ext_resource type="Texture2D" uid="uid://cgxblrc4qks3i" path="res://resources/images/Creatures/Creature_6_deer/photo.png" id="10_bieos"]
 [ext_resource type="Texture2D" uid="uid://cy6y13nw3ufia" path="res://resources/images/Creatures/Creature_7_bug/photo.png" id="11_56sdl"]
+[ext_resource type="Texture2D" uid="uid://dheo2e4xgsqok" path="res://resources/images/Creatures/Creature_8_cameleon/photo.png" id="11_wjtan"]
 [ext_resource type="Texture2D" uid="uid://ixxri1b35qm8" path="res://resources/images/Creatures/lutin01.png" id="11_xo7rr"]
 [ext_resource type="Texture2D" uid="uid://c2xdmypy3xc24" path="res://resources/images/Creatures/lutin02.png" id="12_boln1"]
 [ext_resource type="Texture2D" uid="uid://c31gkmux432on" path="res://resources/images/Creatures/lutin03.png" id="13_sxntx"]
@@ -52,7 +53,6 @@ pivot_offset = Vector2(1, 0)
 color = Color(0.443137, 0.443137, 0.443137, 0.760784)
 
 [node name="message" type="ColorRect" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -97,6 +97,7 @@ theme_override_fonts/font = ExtResource("1_80pi6")
 text = "go home"
 
 [node name="EndMenu" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_left = -637.0
 offset_top = -359.0
@@ -264,10 +265,10 @@ rotation = -0.0186812
 
 [node name="notfound" type="TextureRect" parent="EndMenu/album/Creature_5"]
 layout_mode = 0
-offset_left = 3.05176e-05
-offset_top = -19.0
-offset_right = 148.0
-offset_bottom = 155.0
+offset_left = 18.0903
+offset_top = -4.66281
+offset_right = 166.09
+offset_bottom = 169.337
 texture = ExtResource("3_jttmj")
 
 [node name="found" type="TextureRect" parent="EndMenu/album/Creature_5"]
@@ -325,6 +326,30 @@ offset_bottom = 157.0
 texture = ExtResource("11_56sdl")
 expand_mode = 1
 
+[node name="Creature_8" type="Control" parent="EndMenu/album"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -616.0
+offset_top = -47.0
+offset_right = -576.0
+offset_bottom = -7.0
+rotation = -0.135299
+
+[node name="notfound" type="TextureRect" parent="EndMenu/album/Creature_8"]
+layout_mode = 0
+offset_left = 2.96757
+offset_top = -21.7989
+offset_right = 104.968
+offset_bottom = 122.201
+texture = ExtResource("3_jttmj")
+
+[node name="found" type="TextureRect" parent="EndMenu/album/Creature_8"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("11_wjtan")
+
 [node name="Lutin_1" type="Control" parent="EndMenu/album"]
 layout_mode = 3
 anchors_preset = 0
@@ -350,9 +375,10 @@ texture = ExtResource("11_xo7rr")
 [node name="Lutin_2" type="Control" parent="EndMenu/album"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -470.0
-offset_top = -117.0
-offset_right = -334.0
+offset_left = -440.0
+offset_top = -101.0
+offset_right = -304.0
+offset_bottom = 16.0
 rotation = 0.245954
 
 [node name="notfound" type="TextureRect" parent="EndMenu/album/Lutin_2"]
