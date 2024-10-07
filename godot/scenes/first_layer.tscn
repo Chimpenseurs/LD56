@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cynkgw7gnyys5"]
+[gd_scene load_steps=17 format=3 uid="uid://cynkgw7gnyys5"]
 
 [ext_resource type="PackedScene" uid="uid://bxa20eakimwpg" path="res://scenes/Creatures/creature_3.tscn" id="1_twav2"]
 [ext_resource type="Texture2D" uid="uid://dwbhy5w50b5b0" path="res://resources/images/first_layer.svg" id="1_ug424"]
@@ -9,6 +9,211 @@
 [ext_resource type="PackedScene" uid="uid://dqntpxx1eto74" path="res://scenes/Creatures/creature_7.tscn" id="6_1wo6y"]
 [ext_resource type="PackedScene" uid="uid://babtfa4f6mhjj" path="res://scenes/Creatures/lutin.tscn" id="7_nwsd2"]
 [ext_resource type="PackedScene" uid="uid://bdivwqnkflw40" path="res://scenes/Creatures/creature_8.tscn" id="7_tpwl2"]
+[ext_resource type="Texture2D" uid="uid://bqsribry44gid" path="res://resources/images/branche.svg" id="10_k4thv"]
+
+[sub_resource type="GDScript" id="GDScript_d5duj"]
+script/source = "extends Node2D
+
+func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if(Helpers.is_clicked(event)):
+		$Branch_AnimationPlayer.play(\"fall\")
+		remove_child($Area2D)
+		emit_signal(\"is_clicked\")
+		get_viewport().set_input_as_handled()
+"
+
+[sub_resource type="Animation" id="Animation_5ghge"]
+resource_name = "branch"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Branch2/Branch:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.5, 0.766667, 0.966667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0872665, 0.0, 0.0872665, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_dalbi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Branch2/Branch:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Branch2/Lutin_13:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(181.667, -198.333)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Branch2/Lutin_14:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(308.333, -145)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Branch2/Lutin_15:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(420, -54.1667)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Branch2/Lutin_15:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.366274]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Branch2/Lutin_14:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Branch2/Lutin_13:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_njqoh"]
+resource_name = "fall"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Branch2/Lutin_13:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(181.667, -198.333), Vector2(204.167, -265), Vector2(178.333, 333.333)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Branch2/Lutin_14:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.266667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(308.333, -145), Vector2(358.333, -189.167), Vector2(483.333, 636.667)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Branch2/Lutin_15:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.266667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(420, -54.1667), Vector2(550, -154.167), Vector2(747.5, 589.167)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Branch2/Lutin_15:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0155281, 2.16736, 3.95533, -5.91667]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Branch2/Lutin_14:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -2.20936, -3.99289, -6.35135]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Branch2/Lutin_13:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 2.17241, 4.05415, 6.57008]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m0mtv"]
+_data = {
+"RESET": SubResource("Animation_dalbi"),
+"branch": SubResource("Animation_5ghge"),
+"fall": SubResource("Animation_njqoh")
+}
+
+[sub_resource type="GDScript" id="GDScript_w7gwb"]
+script/source = "extends AnimationPlayer
+
+func _ready() -> void:
+	self.play(\"branch\")
+"
 
 [node name="FirstLayer" type="Parallax2D"]
 scale = Vector2(1.2, 1.2)
@@ -64,3 +269,43 @@ flip_h = true
 position = Vector2(1659.17, 720.833)
 scale = Vector2(0.08, 0.08)
 hat_color = Color(0.270588, 0.439216, 0.486275, 1)
+
+[node name="Branch2" type="Node2D" parent="."]
+script = SubResource("GDScript_d5duj")
+
+[node name="Lutin_13" parent="Branch2" instance=ExtResource("7_nwsd2")]
+position = Vector2(181.667, -198.333)
+scale = Vector2(0.05, 0.05)
+hat_color = Color(0.894118, 0.905882, 0.12549, 1)
+
+[node name="Lutin_14" parent="Branch2" instance=ExtResource("7_nwsd2")]
+position = Vector2(308.333, -145)
+scale = Vector2(0.05, 0.05)
+hat_color = Color(0.835294, 0.862745, 0.160784, 1)
+
+[node name="Lutin_15" parent="Branch2" instance=ExtResource("7_nwsd2")]
+position = Vector2(420, -54.1667)
+rotation = 0.366274
+scale = Vector2(0.05, 0.05)
+hat_color = Color(0.792157, 0.827451, 0.121569, 1)
+
+[node name="Branch" type="Sprite2D" parent="Branch2"]
+position = Vector2(-49.1667, -297.5)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("10_k4thv")
+offset = Vector2(459.722, 191.667)
+
+[node name="Area2D" type="Area2D" parent="Branch2"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Branch2/Area2D"]
+rotation = 0.106617
+polygon = PackedVector2Array(180.062, -173.48, 433.627, -67.3602, 502.992, -61.3743, 493.292, -120.679, 353.661, -250.725, 140.635, -346.098, 31.9721, -351.23, -43.0787, -316.379)
+
+[node name="Branch_AnimationPlayer" type="AnimationPlayer" parent="Branch2"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_m0mtv")
+}
+script = SubResource("GDScript_w7gwb")
+
+[connection signal="input_event" from="Branch2/Area2D" to="Branch2" method="_on_area_2d_input_event"]
