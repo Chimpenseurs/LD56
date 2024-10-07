@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c7145rdwhkc3y"]
+[gd_scene load_steps=11 format=3 uid="uid://c7145rdwhkc3y"]
 
 [ext_resource type="PackedScene" uid="uid://h63uscgmwm1t" path="res://scenes/lutin.tscn" id="1_76caq"]
 [ext_resource type="Texture2D" uid="uid://bthexduu6emp" path="res://resources/images/Creatures/Creature_4_rock_paraletruc/awake.png" id="2_8ggsc"]
@@ -15,7 +15,7 @@ script/source = "extends Node2D
 func _on_lutin_is_clicked() -> void:
 	$AnimationPlayer.play(\"stone_to_squirrel\")
 	$noise.play()
-	$chant.volume_db = 15
+	$chant.volume_db = 10.0
 	get_parent().find()
 	get_parent().get_parent().find_child(\"Lutin_9\").show()
 "
@@ -57,17 +57,11 @@ random_pitch = 1.15
 streams_count = 1
 stream_0/stream = ExtResource("4_n1p7v")
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_o615n"]
-random_pitch = 1.15
-streams_count = 1
-stream_0/stream = ExtResource("5_steg1")
-
 [node name="Lutin" instance=ExtResource("1_76caq")]
 scale = Vector2(0.2, 0.2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 position = Vector2(12.5, 22.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_31e7w")
 
 [node name="Creature_4" type="Node2D" parent="." index="2"]
@@ -92,10 +86,11 @@ volume_db = 20.428
 bus = &"SFX"
 
 [node name="chant" type="AudioStreamPlayer2D" parent="Creature_4" index="4"]
-stream = SubResource("AudioStreamRandomizer_o615n")
+stream = ExtResource("5_steg1")
 volume_db = -80.0
 autoplay = true
-bus = &"SFX"
+bus = &"Trolls"
+playback_type = 1
 
 [connection signal="is_clicked" from="." to="Creature_4" method="_on_lutin_is_clicked"]
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

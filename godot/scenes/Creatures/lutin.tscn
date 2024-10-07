@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://babtfa4f6mhjj"]
+[gd_scene load_steps=11 format=3 uid="uid://babtfa4f6mhjj"]
 
 [ext_resource type="PackedScene" uid="uid://h63uscgmwm1t" path="res://scenes/lutin.tscn" id="1_avbn2"]
 [ext_resource type="Texture2D" uid="uid://doem222j08agm" path="res://resources/images/Creatures/lutin.svg" id="2_gtwc1"]
@@ -15,7 +15,8 @@ func _ready():
 func _on_lutin_is_clicked() -> void:
 	$AnimationPlayer.play(\"clicked\")
 	$noise.play()
-	$chant.volume_db = 15
+	$chant.volume_db = 5
+	$chant.pitch_scale = 1.0 + randf_range(-0.02, 0.02)
 	get_parent().find()
 "
 
@@ -108,11 +109,6 @@ _data = {
 "clicked": SubResource("Animation_b06wx")
 }
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pafdy"]
-random_pitch = 1.15
-streams_count = 1
-stream_0/stream = ExtResource("6_d0x0g")
-
 [node name="Lutin" instance=ExtResource("1_avbn2")]
 scale = Vector2(0.2, 0.2)
 
@@ -140,9 +136,11 @@ scale = Vector2(1.15353, 1)
 texture = ExtResource("3_fkgmp")
 
 [node name="chant" type="AudioStreamPlayer2D" parent="Lutin" index="4"]
-stream = SubResource("AudioStreamRandomizer_pafdy")
+stream = ExtResource("6_d0x0g")
 volume_db = -80.0
 autoplay = true
+bus = &"Lutins"
+playback_type = 1
 
 [connection signal="is_clicked" from="." to="Lutin" method="_on_lutin_is_clicked"]
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

@@ -8,6 +8,7 @@ var game
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	randomize()
 	main_menu = main_menu_scene.instantiate()
 	add_child(main_menu)
 	
