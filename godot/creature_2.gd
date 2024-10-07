@@ -11,8 +11,8 @@ var can_move = false
 
 func _process(delta):
 	if can_move:
-		position += Vector2(-20, -25)
-		scale += Vector2(0.05, 0.05)
+		position += Vector2(-500.0, -100.0) * delta
+		scale += Vector2(2.0, 2.0) * delta
 		if(scale.x > 3):
 			get_parent().hide()
 
