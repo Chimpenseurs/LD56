@@ -12,6 +12,7 @@ script/source = "extends Node2D
 func _on_lutin_is_clicked() -> void:
 	$AnimationPlayer.play(\"stone_to_squirrel\")
 	get_parent().find()
+	get_viewport().set_input_as_handled()
 "
 
 [sub_resource type="Animation" id="Animation_t635r"]
