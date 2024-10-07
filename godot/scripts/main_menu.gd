@@ -15,5 +15,5 @@ func _on_quit_pressed() -> void:
 	get_tree().quit()
 
 func _on_play_pressed() -> void:
-	Input.set_mouse_mode(Input.MouseMode.MOUSE_MODE_CONFINED)
+	#Input.set_mouse_mode(Input.MouseMode.MOUSE_MODE_CONFINED)
 	play.emit()

@@ -22,23 +22,6 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		get_viewport().set_input_as_handled()
 "
 
-[sub_resource type="Animation" id="Animation_5ghge"]
-resource_name = "branch"
-length = 4.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Branch2/Branch:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.266667, 0.5, 0.766667, 0.966667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0872665, 0.0, 0.0872665, 0.0]
-}
-
 [sub_resource type="Animation" id="Animation_dalbi"]
 length = 0.001
 tracks/0/type = "value"
@@ -124,6 +107,23 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_5ghge"]
+resource_name = "branch"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Branch2/Branch:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.5, 0.766667, 0.966667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0872665, 0.0, 0.0872665, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_njqoh"]
