@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c7iggml53ca0"]
+[gd_scene load_steps=15 format=3 uid="uid://c7iggml53ca0"]
 
 [ext_resource type="Script" path="res://scripts/scene.gd" id="1_7cxck"]
 [ext_resource type="PackedScene" uid="uid://cb4bi7y8ykstg" path="res://scenes/third_layer.tscn" id="2_d6ee5"]
@@ -12,6 +12,29 @@
 [ext_resource type="AudioStream" uid="uid://dpy7e5mlmq63k" path="res://resources/sfx/footstep04.wav" id="10_exiys"]
 [ext_resource type="AudioStream" uid="uid://by6p13j62pgc0" path="res://resources/sfx/footstep05.wav" id="11_w6i3q"]
 [ext_resource type="AudioStream" uid="uid://bg621y3unx0kx" path="res://resources/sfx/birds.ogg" id="12_bfnfm"]
+
+[sub_resource type="GDScript" id="GDScript_8br6e"]
+script/source = "extends Camera2D
+
+func _process(delta_time : float):
+	var mouse_position = Helpers.get_mouse_position()
+	var viewport_resolution = Helpers.get_resolution()
+	var mouse_normalized_position = (Vector2)(mouse_position) / (Vector2)(viewport_resolution)
+	var speed = 300
+	if(mouse_normalized_position.x > 0.02):
+		self.position.x += speed * delta_time
+	if(mouse_normalized_position.x < 0.98):
+		self.position.x -= speed * delta_time
+	if(mouse_normalized_position.y > 0.02):
+		self.position.y += speed * delta_time
+	if(mouse_normalized_position.y < 0.98):
+		self.position.y -= speed * delta_time
+	
+	position.x = min(position.x, 5452.0)
+	position.x = max(position.x, 0.0)
+	position.y = min(position.y, 400.0)
+	position.y = max(position.y, -648.0)
+"
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3k5ss"]
 random_pitch = 1.39
@@ -41,6 +64,7 @@ metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
+script = SubResource("GDScript_8br6e")
 
 [node name="GameOver" parent="Camera2D" instance=ExtResource("2_ualug")]
 visible = false
