@@ -254,7 +254,7 @@ scale = Vector2(0.5, 0.5)
 [node name="Creature_7" parent="Creatures" instance=ExtResource("6_1wo6y")]
 position = Vector2(899.167, -250.834)
 
-[node name="Creature_8_cameleon" parent="Creatures" instance=ExtResource("7_tpwl2")]
+[node name="Creature_8" parent="Creatures" instance=ExtResource("7_tpwl2")]
 position = Vector2(10.8337, -225.834)
 rotation = 0.540873
 scale = Vector2(0.1, 0.1)

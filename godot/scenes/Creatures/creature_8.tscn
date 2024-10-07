@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dmlji8v6pj44p" path="res://resources/images/Creatures/Creature_8_cameleon/Project_20241005085740.png" id="2_6j4cm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_31e7w"]
-size = Vector2(255, 480)
+size = Vector2(445, 865)
 
 [sub_resource type="GDScript" id="GDScript_5bmp5"]
 script/source = "extends Node2D
@@ -50,7 +50,7 @@ _data = {
 scale = Vector2(0.2, 0.2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
-position = Vector2(-7.49999, 15)
+position = Vector2(22.5, 67.4999)
 shape = SubResource("RectangleShape2D_31e7w")
 
 [node name="Creature_8" type="Node2D" parent="." index="2"]
