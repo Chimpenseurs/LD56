@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://0053qxe7jhi5"]
+[gd_scene load_steps=25 format=3 uid="uid://0053qxe7jhi5"]
 
 [ext_resource type="FontFile" uid="uid://dsgfusu2nhuj2" path="res://resources/fonts/IrishUncialfabeta-Bold.ttf" id="1_80pi6"]
 [ext_resource type="Script" path="res://scripts/game_over.gd" id="1_xgic5"]
@@ -11,6 +11,18 @@
 [ext_resource type="Texture2D" uid="uid://dsdqc0m5sa3wo" path="res://resources/images/Creatures/Creature_5_ent/photo.png" id="9_bevr6"]
 [ext_resource type="Texture2D" uid="uid://cgxblrc4qks3i" path="res://resources/images/Creatures/Creature_6_deer/photo.png" id="10_bieos"]
 [ext_resource type="Texture2D" uid="uid://cy6y13nw3ufia" path="res://resources/images/Creatures/Creature_7_bug/photo.png" id="11_56sdl"]
+[ext_resource type="Texture2D" uid="uid://ixxri1b35qm8" path="res://resources/images/Creatures/lutin01.png" id="11_xo7rr"]
+[ext_resource type="Texture2D" uid="uid://c2xdmypy3xc24" path="res://resources/images/Creatures/lutin02.png" id="12_boln1"]
+[ext_resource type="Texture2D" uid="uid://c31gkmux432on" path="res://resources/images/Creatures/lutin03.png" id="13_sxntx"]
+[ext_resource type="Texture2D" uid="uid://cpyjpe1r4upsx" path="res://resources/images/Creatures/lutin04.png" id="14_8ev0g"]
+[ext_resource type="Texture2D" uid="uid://uitxxh30s800" path="res://resources/images/Creatures/lutin05.png" id="15_am73w"]
+[ext_resource type="Texture2D" uid="uid://baoriscdk6xuu" path="res://resources/images/Creatures/lutin06.png" id="16_eyt40"]
+[ext_resource type="Texture2D" uid="uid://baiod0ei46q85" path="res://resources/images/Creatures/lutin07.png" id="17_4vbsu"]
+[ext_resource type="Texture2D" uid="uid://cu0quaybbc68" path="res://resources/images/Creatures/lutin08.png" id="18_chka5"]
+[ext_resource type="Texture2D" uid="uid://bhuuu8fgymp7p" path="res://resources/images/Creatures/lutin09.png" id="19_muyyu"]
+[ext_resource type="Texture2D" uid="uid://8oxpk7stk6sr" path="res://resources/images/Creatures/lutin10.png" id="20_fqdv0"]
+[ext_resource type="Texture2D" uid="uid://qgvrksbjtuw0" path="res://resources/images/Creatures/lutin11.png" id="21_itfq6"]
+[ext_resource type="Texture2D" uid="uid://xf2i8nls6i6m" path="res://resources/images/Creatures/lutin12.png" id="22_e4kxn"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_46ve6"]
 random_pitch = 1.15
@@ -40,6 +52,7 @@ pivot_offset = Vector2(1, 0)
 color = Color(0.443137, 0.443137, 0.443137, 0.760784)
 
 [node name="message" type="ColorRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -84,7 +97,6 @@ theme_override_fonts/font = ExtResource("1_80pi6")
 text = "go home"
 
 [node name="EndMenu" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_left = -637.0
 offset_top = -359.0
@@ -312,6 +324,269 @@ offset_right = 165.0
 offset_bottom = 157.0
 texture = ExtResource("11_56sdl")
 expand_mode = 1
+
+[node name="Lutin_1" type="Control" parent="EndMenu/album"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -210.0
+offset_top = -292.0
+offset_right = -170.0
+offset_bottom = -252.0
+rotation = 0.397323
+
+[node name="notfound" type="TextureRect" parent="EndMenu/album/Lutin_1"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_jttmj")
+
+[node name="found" type="TextureRect" parent="EndMenu/album/Lutin_1"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("11_xo7rr")
+
+[node name="Lutin_2" type="Control" parent="EndMenu/album"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -470.0
+offset_top = -117.0
+offset_right = -334.0
+rotation = 0.245954
+
+[node name="notfound" type="TextureRect" parent="EndMenu/album/Lutin_2"]
+layout_mode = 0
+offset_right = 131.0
+offset_bottom = 115.0
+texture = ExtResource("3_jttmj")
+
+[node name="found" type="TextureRect" parent="EndMenu/album/Lutin_2"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("12_boln1")
+
+[node name="Lutin_3" type="Control" parent="EndMenu/album"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 314.0
+offset_top = -263.0
+offset_right = 450.0
+offset_bottom = -146.0
+rotation = 0.245954
+
+[node name="notfound" type="TextureRect" parent="EndMenu/album/Lutin_3"]
+layout_mode = 0
+offset_right = 61.0
+offset_bottom = 61.0
+texture = ExtResource("3_jttmj")
+
+[node name="found" type="TextureRect" parent="EndMenu/album/Lutin_3"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("13_sxntx")
+
+[node name="Lutin_4" type="Control" parent="EndMenu/album"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 340.0
+offset_top = 246.0
+offset_right = 476.0
+offset_bottom = 363.0
+rotation = 0.377524
+
+[node name="notfound" type="TextureRect" parent="EndMenu/album/Lutin_4"]
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 68.0
+texture = ExtResource("3_jttmj")
+
+[node name="found" type="TextureRect" parent="EndMenu/album/Lutin_4"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("14_8ev0g")
+
+[node name="Lutin_5" type="Control" parent="EndMenu/album"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 425.0
+offset_top = -57.0
+offset_right = 561.0
+offset_bottom = 60.0
+rotation = -0.0199034
+
+[node name="notfound" type="TextureRect" parent="EndMenu/album/Lutin_5"]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 118.0
+texture = ExtResource("3_jttmj")
+
+[node name="found" type="TextureRect" parent="EndMenu/album/Lutin_5"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("15_am73w")
+
+[node name="Lutin_6" type="Control" parent="EndMenu/album"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -301.0
+offset_top = -184.0
+offset_right = -165.0
+offset_bottom = -67.0
+rotation = 0.0289246
+
+[node name="notfound" type="TextureRect" parent="EndMenu/album/Lutin_6"]
+layout_mode = 0
+offset_right = 61.0
+offset_bottom = 61.0
+texture = ExtResource("3_jttmj")
+
+[node name="found" type="TextureRect" parent="EndMenu/album/Lutin_6"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("16_eyt40")
+
+[node name="Lutin_7" type="Control" parent="EndMenu/album"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 461.0
+offset_top = -209.0
+offset_right = 597.0
+offset_bottom = -92.0
+rotation = 0.0289246
+
+[node name="notfound" type="TextureRect" parent="EndMenu/album/Lutin_7"]
+layout_mode = 0
+offset_right = 61.0
+offset_bottom = 61.0
+texture = ExtResource("3_jttmj")
+
+[node name="found" type="TextureRect" parent="EndMenu/album/Lutin_7"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("17_4vbsu")
+
+[node name="Lutin_8" type="Control" parent="EndMenu/album"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 493.0
+offset_top = 208.0
+offset_right = 629.0
+offset_bottom = 325.0
+rotation = 0.0289246
+
+[node name="notfound" type="TextureRect" parent="EndMenu/album/Lutin_8"]
+layout_mode = 0
+offset_right = 73.0
+offset_bottom = 93.0
+texture = ExtResource("3_jttmj")
+
+[node name="found" type="TextureRect" parent="EndMenu/album/Lutin_8"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("18_chka5")
+
+[node name="Lutin_9" type="Control" parent="EndMenu/album"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -442.0
+offset_top = -261.0
+offset_right = -306.0
+offset_bottom = -144.0
+rotation = -0.0224324
+
+[node name="notfound" type="TextureRect" parent="EndMenu/album/Lutin_9"]
+layout_mode = 0
+offset_right = 118.0
+offset_bottom = 107.0
+texture = ExtResource("3_jttmj")
+
+[node name="found" type="TextureRect" parent="EndMenu/album/Lutin_9"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("19_muyyu")
+
+[node name="Lutin_10" type="Control" parent="EndMenu/album"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 402.0
+offset_top = -329.0
+offset_right = 538.0
+offset_bottom = -212.0
+rotation = -0.241137
+
+[node name="notfound" type="TextureRect" parent="EndMenu/album/Lutin_10"]
+layout_mode = 0
+offset_right = 66.0
+offset_bottom = 84.0
+texture = ExtResource("3_jttmj")
+
+[node name="found" type="TextureRect" parent="EndMenu/album/Lutin_10"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("20_fqdv0")
+
+[node name="Lutin_11" type="Control" parent="EndMenu/album"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 150.0
+offset_top = -301.0
+offset_right = 286.0
+offset_bottom = -184.0
+rotation = -0.304042
+
+[node name="notfound" type="TextureRect" parent="EndMenu/album/Lutin_11"]
+layout_mode = 0
+offset_right = 97.0
+offset_bottom = 87.0
+texture = ExtResource("3_jttmj")
+
+[node name="found" type="TextureRect" parent="EndMenu/album/Lutin_11"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("21_itfq6")
+
+[node name="Lutin_12" type="Control" parent="EndMenu/album"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -274.0
+offset_top = 167.0
+offset_right = -138.0
+offset_bottom = 284.0
+rotation = -0.128893
+
+[node name="notfound" type="TextureRect" parent="EndMenu/album/Lutin_12"]
+layout_mode = 0
+offset_right = 193.0
+offset_bottom = 174.0
+texture = ExtResource("3_jttmj")
+
+[node name="found" type="TextureRect" parent="EndMenu/album/Lutin_12"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("22_e4kxn")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_46ve6")
