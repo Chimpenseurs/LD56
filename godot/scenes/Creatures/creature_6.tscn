@@ -13,6 +13,7 @@ size = Vector2(585, 375)
 script/source = "extends Node2D
 
 func _on_lutin_is_clicked() -> void:
+	get_viewport().set_input_as_handled()
 	$AnimationPlayer.play(\"stone_to_squirrel\")
 	$noise.play()
 	get_parent().find()
@@ -30,7 +31,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 0.5
+"speed": 1.5
 }]
 
 [sub_resource type="Animation" id="Animation_t635r"]
@@ -84,6 +85,7 @@ script = SubResource("GDScript_5bmp5")
 self_modulate = Color(1, 1, 1, 0)
 sprite_frames = SubResource("SpriteFrames_2ies2")
 autoplay = "default"
+frame_progress = 0.760967
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Creature_6" index="1"]
 root_node = NodePath("../..")

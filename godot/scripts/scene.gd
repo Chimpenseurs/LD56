@@ -17,20 +17,33 @@ func _process(delta: float) -> void:
 var speed_camera = 20.0
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:
-		if event.keycode == KEY_RIGHT or event.keycode == KEY_LEFT:
-			if can_play_footstep:
-				$Footsteps.play()
-				can_play_footstep = false
-				$Footsteps/cooldown.start()
-				
+		var offset  = Vector2.ZERO
+		var is_moving_x = false
 		if event.keycode == KEY_RIGHT:
-			$Camera2D.position.x += speed_camera
+			offset.x += speed_camera
+			is_moving_x = true
 		elif event.keycode == KEY_LEFT:
-			$Camera2D.position.x -= speed_camera
+			offset.x -= speed_camera
+			is_moving_x = true
 		elif event.keycode == KEY_DOWN:
-			$Camera2D.position.y += speed_camera
+			offset.y += speed_camera
 		elif event.keycode == KEY_UP:
-			$Camera2D.position.y -= speed_camera
+			offset.y -= speed_camera
+			
+		update_camera(offset, is_moving_x)
+			
+func update_camera(offset : Vector2, is_moving_x : bool):
+	if is_moving_x and can_play_footstep:
+		$Footsteps.play()
+		can_play_footstep = false
+		$Footsteps/cooldown.start()
+	
+	$Camera2D.position += offset
+	
+	$Camera2D.position.x = min($Camera2D.position.x, 5452.0)
+	$Camera2D.position.x = max($Camera2D.position.x, 0.0)
+	$Camera2D.position.y = min($Camera2D.position.y, 400.0)
+	$Camera2D.position.y = max($Camera2D.position.y, -648.0)
 
 func _on_timer_timeout():
 	can_play_footstep = true
@@ -40,3 +53,7 @@ func _on_gameover_replay():
 
 func _on_gameover_gotomainmenu():
 	gotomainmenu.emit()
+
+func _on_sound_value_changed(value: float) -> void:
+	var v = 20.0 * (100.0 - value) / 100.0
+	AudioServer.set_bus_volume_db(0, -v)
