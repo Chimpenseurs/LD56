@@ -45,7 +45,7 @@ position = Vector2(145.833, 186.667)
 position = Vector2(248.334, 414.166)
 scale = Vector2(0.5, 0.5)
 
-[node name="Lutin" parent="Creatures" instance=ExtResource("6_1wo6y")]
+[node name="Creature_7" parent="Creatures" instance=ExtResource("6_1wo6y")]
 position = Vector2(899.167, -250.834)
 
 [node name="Flowers" type="Sprite2D" parent="."]
@@ -54,7 +54,7 @@ scale = Vector2(0.8, 0.8)
 texture = ExtResource("4_kxo54")
 flip_h = true
 
-[node name="Lutin_8" parent="." instance=ExtResource("7_nwsd2")]
+[node name="Lutin_12" parent="." instance=ExtResource("7_nwsd2")]
 position = Vector2(1659.17, 720.833)
 scale = Vector2(0.08, 0.08)
 hat_color = Color(0.270588, 0.439216, 0.486275, 1)

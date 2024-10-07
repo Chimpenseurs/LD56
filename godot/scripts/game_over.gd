@@ -13,19 +13,23 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+func update_album() -> void:
+	for child in $EndMenu/album.get_children():
+		if Global.creatures[child.name]:
+			child.get_node("notfound").visible = false
+			child.get_node("found").visible = true
+
 
 func _on_button_pressed() -> void:
 	$message.visible = false
 	$EndMenu.visible = true
 	
 
-
 func _on_quit_pressed() -> void:
 	get_tree().quit()
 
 
 func _on_replay_pressed() -> void:
-	print("button replay pressed")
 	replay.emit()
 
 

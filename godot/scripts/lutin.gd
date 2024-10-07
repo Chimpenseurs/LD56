@@ -3,9 +3,13 @@ extends Node2D
 @export var hat_color : Color = Color.WHITE
 
 signal is_clicked
+
+func _ready() -> void:
+	Global.creatures[self.name] = 0
 	
 func find() -> void:
 	$AudioStreamPlayer.play()
+	Global.creatures[self.name] = 1
 	disable_click()
 	
 func disable_click():

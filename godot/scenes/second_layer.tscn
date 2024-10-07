@@ -92,7 +92,7 @@ rotation = -0.135001
 scale = Vector2(0.839766, 1)
 texture = ExtResource("7_e4a4x")
 
-[node name="Creature_6_Deer" parent="." instance=ExtResource("8_knkyr")]
+[node name="Creature_6" parent="." instance=ExtResource("8_knkyr")]
 position = Vector2(1760, 529)
 scale = Vector2(0.4, 0.4)
 

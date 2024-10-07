@@ -42,7 +42,6 @@ func _on_timer_timeout():
 	can_play_footstep = true
 
 func _on_gameover_replay():
-	print("_on_gameover_replay")
 	replay.emit()
 
 func _on_gameover_gotomainmenu():

@@ -22,8 +22,10 @@ func _process(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	get_tree().paused = true
+	game.get_node("Camera2D/GameOver").update_album()
 	game.get_node("Camera2D/GameOver").visible = true
 	game.get_node("Camera2D/GameOver/AudioStreamPlayer").play()
+	
 
 func _on_play() -> void:
 	if game != null:
@@ -41,7 +43,6 @@ func _on_play() -> void:
 	$Timer.start()
 
 func _on_main_menu() -> void:
-	print("on_main_menu")
 	if game != null:
 		game.queue_free()
 	
