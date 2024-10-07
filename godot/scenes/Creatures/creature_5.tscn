@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dny8tldvn8rbv"]
+[gd_scene load_steps=10 format=3 uid="uid://dny8tldvn8rbv"]
 
 [ext_resource type="PackedScene" uid="uid://h63uscgmwm1t" path="res://scenes/lutin.tscn" id="1_6ob6i"]
 [ext_resource type="Texture2D" uid="uid://ba2iyjw2j2eq3" path="res://resources/images/Creatures/Creature_5_ent/ent_awaken.png" id="2_ir33t"]
 [ext_resource type="Texture2D" uid="uid://b4aiiad11k8iv" path="res://resources/images/Creatures/Creature_5_ent/ent_sleeping.png" id="3_kr3mk"]
+[ext_resource type="AudioStream" uid="uid://l70lxys08brg" path="res://resources/sfx/tree-found.wav" id="4_74x48"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_31e7w"]
 size = Vector2(315, 985)
@@ -13,7 +14,6 @@ script/source = "extends Node2D
 func _on_lutin_is_clicked() -> void:
 	$AnimationPlayer.play(\"stone_to_squirrel\")
 	$noise.play()
-	$chant.volume_db = 15
 	get_parent().find()
 	get_parent().get_parent().find_child(\"Lutin_10\").show()
 "
@@ -50,12 +50,16 @@ _data = {
 "stone_to_squirrel": SubResource("Animation_t635r")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ck16m"]
+random_pitch = 1.15
+streams_count = 1
+stream_0/stream = ExtResource("4_74x48")
+
 [node name="Lutin" instance=ExtResource("1_6ob6i")]
 scale = Vector2(0.2, 0.2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 position = Vector2(-7.5, 22.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_31e7w")
 
 [node name="Creature_5" type="Node2D" parent="." index="2"]
@@ -75,12 +79,8 @@ libraries = {
 texture = ExtResource("3_kr3mk")
 
 [node name="noise" type="AudioStreamPlayer2D" parent="Creature_5" index="3"]
+stream = SubResource("AudioStreamRandomizer_ck16m")
 volume_db = 20.428
-bus = &"SFX"
-
-[node name="chant" type="AudioStreamPlayer2D" parent="Creature_5" index="4"]
-volume_db = -80.0
-autoplay = true
 bus = &"SFX"
 
 [connection signal="is_clicked" from="." to="Creature_5" method="_on_lutin_is_clicked"]

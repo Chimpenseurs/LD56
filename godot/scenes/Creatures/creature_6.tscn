@@ -67,7 +67,6 @@ _data = {
 
 [node name="Lutin" instance=ExtResource("1_6bone")]
 scale = Vector2(0.2, 0.2)
-hat_color = Color(1, 1, 1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 position = Vector2(-52.5, 357.5)
